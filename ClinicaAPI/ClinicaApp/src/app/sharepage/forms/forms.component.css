@@ -1,0 +1,29 @@
+.interior {
+  margin:1vh;
+  border: solid 2px aquamarine;
+  background-color: bisque;
+}
+.superior {
+padding:5px;
+height: 250px;
+width: 100%;
+position: relative;
+display: flex;
+}
+.EspacoFoto {
+width:35%;
+padding:2%
+}
+.Foto {
+height: 220px;
+width: auto;
+}
+.EspacoDoctos {
+width:60%;
+padding:2%;
+border-radius: 6px;
+border-top: solid 1px rosybrown;
+border-bottom: solid 1px rosybrown;
+border-left: solid 1px rgb(253, 236, 236);
+border-right: solid 1px rgb(253, 236, 236);
+}

@@ -1,0 +1,38 @@
+.Informacoes {
+    height: 100%;
+    width: 15vw;
+}
+
+.Grade {
+    overflow: auto;
+    max-height: 75vh; /* Ajuste para o valor desejado */
+    max-width: 80vw;
+
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    /*border: 1px solid black;/*/   
+    padding: 8px;
+    text-align: left;
+    min-width: 150px; /* Ajuste para o valor desejado */
+  }
+  
+  /* Fixa o cabeçalho no topo */
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Garante que o cabeçalho fique acima das linhas da tabela */
+    background: white; /* Faz o fundo opaco para sobrepor conteúdo */
+  }
+  
+  /* Fixa a primeira coluna à esquerda */
+  tbody td:first-child, thead th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2; /* Garante que a primeira coluna fique acima das outras colunas */
+    background: white; /* Faz o fundo opaco para sobrepor conteúdo */
+  }

@@ -1,0 +1,57 @@
+
+<div class="linha01">
+    <div class="ti-botao">
+        <button class="Rosa" id="Novo">
+            <!-- {{this.selectedFicha}} -->
+            NOVO
+        </button>
+    </div>
+    <div class="ti-container">
+        <div class="ti-controles">
+            <div class="ti-select">
+                <app-formulario></app-formulario>
+            </div>
+        </div>
+        <div class="ti-img"><i class="material-icons" id="funil">filter_alt</i></div>
+    </div>
+    <div class="nome-area" margin-left="2vh">
+        <div class="nome-selec"><label *ngIf="this.selectedFicha!=='NOVO'">Ficha º {{selectedFicha}} - {{selectedName}}</label></div>
+        <div class="linhadebaixo">
+            <div class="desde">
+                <label *ngIf="this.selectedFicha!=='NOVO'">Cliente desde 20/07/2018</label>
+            </div>
+            <div class="idade">
+                <label *ngIf="this.idade !== undefined && isNotNaN(this.idade)">Idade: {{this.idade}} anos</label>
+            </div>
+            <div class="proxses">
+                <label *ngIf="this.selectedFicha!=='NOVO'">Próxima sessão: 28/07/2023</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="corpo">
+    <div class="grid-result">
+      <app-grid01></app-grid01>
+    </div>
+    <div class="lado-direito">
+         <app-forms-equi></app-forms-equi>
+        <div class="botoes-finais">
+            <div class="btnAnexar">
+                <button class="Branco" id="Salvar">
+                    Anexar Arquivos
+                </button>
+            </div>
+            <div class="btnSalvar">
+                <button class="Rosa" id="Salvar">
+                    Salvar
+                </button>
+            </div>
+            <div class="btnFechar">
+                <button class="RosaEscuro" id="Cancelar">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

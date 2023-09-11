@@ -1,0 +1,44 @@
+<div class="formul-result">
+    <div class="info">
+        <div class="infoFoto">
+            <img *ngIf="selectedImage" [src]="selectedImage" alt="Imagem do cliente" class="imagePessoa"/>
+
+            <div class="container">
+
+            </div>
+        </div>
+        <div class="infoPessoa">
+            <label for="">Nome: </label>
+            <input type="text" class="input" value="{{ selectedName }}">
+
+            <br>
+
+            <label for="">Nascimento: </label>
+            <input type="text" class="input-idade" value="{{ selectedNascimento }}">
+
+            <br>
+            <label for="">RG | CPF: </label>
+            <input type="text" class="input">
+            <br>
+
+            <label for="">E-mail: </label>
+            <input type="text" class="input">
+            <br>
+
+            <label for="">Telefone: </label>
+            <input type="text" class="input-tel">
+
+            <br>
+
+            <label for="">Celular: </label>
+            <input type="text" class="input-tel">
+
+            <br>
+
+            <label for="">CEP: </label>
+            <input type="text" class="input">
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,72 @@
+.formul-result{
+    height: 50vh;
+    width: 100%;
+    border: solid 2px rgb(228, 190, 210); 
+    border-radius: 2vh;
+    border-right: none;
+    border-left: none;
+    padding: 5px;
+    overflow-y: auto;
+}
+.container{
+    height: 40vh;
+    width: 50vh;
+    border: solid 2px rgb(228, 190, 210); 
+    border-radius: 2vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+}
+.infoFoto{
+    display: inline-flex;
+}
+.input{
+    border: 2px solid var(--cor-clara);
+    border-radius: 10px;
+    height: 3vh;
+    width: 25vh;
+    margin-top: 2vh;
+    margin-left: 1vh;
+}
+.input-idade{
+    margin-left: 1vh;
+    border: 2px solid var(--cor-clara);
+    border-radius: 10px;
+    height: 3vh;
+    width: 15vh;
+    margin-top: 2vh;
+}
+.input-tel{
+    border: 2px solid var(--cor-clara);
+    border-radius: 10px;
+    height: 3vh;
+    width: 20vh;
+    margin-top: 2vh;
+    margin-left: 1vh;
+}
+.checkbox{
+    margin-right: 1vh;
+}
+.Responsavel{
+    font-size: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.filter-img{
+    margin-left: 3vh;
+    height: 4vh;
+}
+.info{
+    
+}
+
+.imagePessoa{
+    height: 40vh;
+    width: 30vh;
+    margin-top: 2vh;
+    margin-left: 1vh;
+}
+.infoPessoa{
+    margin-left: 2vh;
+
+}

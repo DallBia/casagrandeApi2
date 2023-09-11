@@ -1,0 +1,15 @@
+<div class="superior">
+  <div class="titulos">
+    <label class="lTitulos">QUADRO DE AVISOS</label>
+    <label class="lTitulos">FELIZ ANIVERSÁRIO PARA:</label>
+  </div>
+  <div class="acampos">
+    <div class="acamposI"><textarea #avisosTextarea [(ngModel)]="textoAvisos" (keyup.enter)="addBullet()" placeholder="Digite seus avisos aqui..." class="box-avisos"></textarea></div>
+    <div class="acamposI"><label class="text-aniversario"></label></div>
+  </div>
+</div>
+<div class="button-container">
+  <button *ngFor="let button of buttons" class="btn-outline-danger" (click)="atualizarHeader(button.text)" [routerLink]="button.route">
+    <span class="button-line">{{ button.text }}</span>
+  </button>
+</div>

@@ -1,0 +1,28 @@
+.T0{
+  height: 200px;
+  margin:10px;
+}
+th{
+  text-align: center;
+}
+tr{
+  height: 25px;
+  border-bottom: solid 1px burlywood;
+}
+.T1{
+  column-width: 40%;
+  width: 40%;
+}
+.T2{
+  column-width: 25%;
+  width: 25%;
+}
+.T3{
+  column-width: 25%;
+  width: 25%;
+  text-align: center;
+}
+.T4{
+  column-width: 10%;
+  width: 10%;
+}

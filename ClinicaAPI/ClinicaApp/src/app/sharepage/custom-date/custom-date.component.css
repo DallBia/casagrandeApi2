@@ -1,0 +1,25 @@
+.date-display {
+  cursor: pointer;
+  margin: 10px;
+  border: 1px double #f084ce;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 12pt;
+  color: #6e0459;
+  background: linear-gradient(to right,var(--cor-clara) 0%,var(--cor-clara) 20%,var(--cor-media) 20%,var(--cor-media) 21%, 
+  white 21%, white 79%,var(--cor-media) 79%,var(--cor-media) 80%,var(--cor-clara) 80%, var(--cor-clara) 100%);
+}
+.mat-datepicker-content .mat-calendar-header {
+  background-color: #f1aee4;
+  color: #6e0459;
+}.date-text{
+  margin-right: 2vh;
+}
+.date-dia-da-semana{
+  margin-right: 2vh;
+}
+.date-calendario{
+  margin-right: 3vh;
+}

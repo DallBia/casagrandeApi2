@@ -1,0 +1,25 @@
+<div class="tabela">
+    <table>
+        <thead class="cabeçalho">
+            <th class="t001">Foto</th>
+            <th class="t002">Ficha</th>
+            <th class="t003">Nome</th>
+            <th class="t004">Data Nasc.</th>
+            <th class="t005">Idade</th>
+            <th class="t006">Telefones</th>
+            <th class="t007">Sai Sozinho?</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let l of dataSource" [class.linhaDestacada]="l.selecionada">
+                <td class="t001" (click)="destacarLinha(l, l.Ficha)"> <img src="{{l.Foto}}" style="height:50px; width:auto"></td>
+                <td class="t002" (click)="destacarLinha(l, l.Ficha)"> {{l.Ficha}}</td>
+                <td class="t003" (click)="destacarLinha(l, l.Ficha)"> {{l.Nome}}</td>
+                <td class="t004" (click)="destacarLinha(l, l.Ficha)"> {{l.Nascimento}}</td>
+                <td class="t004" (click)="destacarLinha(l, l.Ficha)"> {{l.Idade}}</td>
+                <td class="t004" (click)="destacarLinha(l, l.Ficha)"> {{l.TelefoneFixo}} - {{l.Celular}}</td>
+                <td class="t005" (click)="destacarLinha(l, l.Ficha)"> {{l.SaiSoz}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+

@@ -1,0 +1,317 @@
+.main-container {
+    display: flex; /* Torna o contêiner um contêiner flex */
+}
+.container{
+    width: 100%;
+}
+.botao-salvar{
+    align-self: center;
+}
+.grid-main {
+    display: flex; /* Converte o contêiner em um contêiner flexível */
+    justify-content: flex-end; /* Alinha os filhos à direita */
+    margin-left: 2px; /* Isso garantirá que o .grid-main seja empurrado para a extrema direita, se houver espaço disponível à esquerda. */
+    margin-right: 13vh;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Cria uma grade 2x2 */
+    gap: 2px; /* Espaçamento entre os botões */
+}
+
+.grid-right {
+    padding: 1px 1px;
+    background-color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.grid-item {
+    margin-bottom: 10px; 
+}
+.infoContainer{
+    display: inline-flex;
+    float: right;
+    margin-right: 11vh;
+    margin-top: 3vh;
+}
+.botoes-end {
+    display: inline-flex;
+    padding: 5vh;
+    position: fixed; 
+    bottom: 10px; /* Espaço do botão da borda inferior da tela. Ajuste conforme necessário. */
+    right: 10px; /* Espaço do botão da borda direita da tela. Ajuste conforme necessário. */
+}
+.botoes{
+    margin-left:2vh ;
+}
+.filtro{
+    margin-top: 0.6vh;
+    float: left;
+}
+.filtro-input{
+    height: 3.5vh;
+    width: 56vh;
+    border: none;
+}
+.input{
+    border: 2px solid var(--cor-clara);
+    border-radius: 10px;
+    height: 3vh;
+    width: 40vh;
+    margin-top: 2vh;
+}
+.input-idade{
+    border: 2px solid var(--cor-clara);
+    border-radius: 10px;
+    height: 3vh;
+    width: 15vh;
+    margin-top: 2vh;
+}
+.input-tel{
+    border: 2px solid var(--cor-clara);
+    border-radius: 10px;
+    height: 3vh;
+    width: 30vh;
+    margin-top: 2vh;
+}
+.filter{
+    margin-top: 1vh;   
+}
+.filter-img{
+    margin-left: 3vh;
+    height: 4vh;
+}
+
+.linha01{
+  width: 100%;
+  /*overflow: hidden;*/
+  margin-left: 1vh;
+  height:10vh;
+  display: inline-flex;
+}
+.ti-botao {
+    height:10vh;
+    width:10%;
+    margin-left: 1vw;
+    margin-right: 5px;
+    padding: 2px;
+    align-content: center;
+}
+.Rosa {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    background-color: var(--cor-clara);
+    border-bottom: solid 2px var(--cor-media);
+    border-top: solid 2px var(--cor-media);
+    border-left: none;
+    border-right: none;
+    font-size: 18pt;
+}
+.Branco {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    background-color: white;
+    border-bottom: solid 2px var(--cor-media);
+    border-top: solid 2px var(--cor-media);
+    border-left: none;
+    border-right: none;
+    font-size: 18pt;
+}
+.RosaEscuro {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    background-color: var(--cor-media);
+    border-bottom: solid 2px var(--cor-escura);
+    border-top: solid 2px var(--cor-escura);
+    border-left: none;
+    color:#fddfed;
+    border-right: none;
+    font-size: 18pt;
+}
+.ti-container {
+    height:10vh;
+    width: 37%;
+    position:relative;
+    display: inline-flex;
+    border-radius: 2vh;
+    border: solid 2px  var(--cor-clara)
+}
+.ti-controles {
+    height: 10vh;
+    width: 85%;
+    padding: 1vh;
+}
+.ti-select {
+    height: 4vh;
+    width: 100%;
+    align-content:center;
+}
+.ti-filtro {
+    height: 4vh;
+    width: 100%;
+}
+.material-icons {
+    font-size: 8vh;
+    color: var(--cor-escura);
+}  
+
+.ti-img {
+    height: 10vh;
+    width: 14%;
+    padding: 1vh;
+}
+.nome-area {
+    height:10vh;
+    width:46%;
+    background-color:white;
+    position:relative;
+    display:inline-block;
+    border-radius: 2vh;
+    border: solid 2px  var(--cor-clara);   
+    padding: 5px;
+    margin-left: 5vh;
+}
+.nome-selec {
+    height:4vh;
+    width:100%;
+    border: none;
+    background-color: white; 
+    font-size: large;
+    color: var(--cor-escura);
+    font-weight: bolder;
+    text-transform:uppercase;
+    display: grid;
+    place-items: center;
+}
+.linhadebaixo {
+    display:inline-flex;
+    place-items: center;
+    text-align: center;
+    height:4vh;
+    width:100%;
+}
+.desde {
+    height:4vh;
+    width:30%;
+    /* border: solid 1px rgb(23, 118, 128);  */
+    place-items: center;
+    text-align: center;
+    padding: 5px;
+}
+.idade {
+    height:4vh;
+    width:30%;
+    /* border: solid 1px rgb(23, 118, 128);      */
+    /* background-color: rgb(106, 128, 85); */
+    place-items: center;
+    text-align: center;
+    padding: 5px;
+}   
+.proxses {
+    height:4vh;
+    width:30%;
+    /* border: solid 1px rgb(23, 118, 128);      */
+    /* background-color: rgb(106, 128, 85); */
+    place-items: center;
+    text-align: center;
+    padding: 5px;
+}   
+
+
+.corpo {
+    height: 70vh;
+    width: 98vw;
+    margin: 1vw;
+    /* border: solid 2px black; */
+    display: inline-flex; 
+    overflow: auto;
+    /* padding: 2px; */
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.grid-result {
+    height: 65vh;
+    margin: 2vh;
+    width: 47%;
+    
+    overflow-y: auto;
+}
+
+.grid-result::-webkit-scrollbar-thumb {
+    background-color: #fddfed; 
+    border-radius: 6px;
+  }
+
+  .grid-result::-webkit-scrollbar {
+    width: 14px;
+    background-color:#ffffff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffb6b6;
+    border-radius: 6px;
+    padding: 2px;
+  }
+
+.lado-direito {
+    height: 65vh;
+    margin: 2vh;
+    width: 47%;
+    /* border: solid 2px rgb(199, 61, 61);    */
+    display: inline-block;
+    padding: 1vh;
+}
+.formul-result {
+    height: 50vh;
+    width: 100%;
+    border: solid 2px rgb(228, 190, 210); 
+    border-radius: 2vh;
+    border-right: none;
+    border-left: none;
+    padding: 5px;
+    overflow-y: auto;
+}
+
+.botoes-finais {
+    height: 20%;
+    width: 100%;
+    display: inline-flex;
+}
+
+.btnAnexar {
+    height: 100%;
+    width: 30%;
+    padding: 1vh;
+    background-color:white;
+}
+.btnSalvar {
+    height: 100%;
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 1vh;
+    background-color:white;
+}
+.btnFechar {
+    height: 100%;
+    width: 30%;
+    padding: 1vh;
+    background-color:white;
+}
+
+#funil {
+    font-size: 6vh;
+    color:var(--cor-media);
+}
+
+/* Estilização básica para a tabela */
+table {
+    width: 100%; /* Você pode ajustar isso conforme necessário */
+    border-collapse: collapse;
+}

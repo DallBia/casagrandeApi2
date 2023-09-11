@@ -1,0 +1,31 @@
+<div>
+  <select id="Filtrar" [(ngModel)]="Filt">
+    <option>Nome</option>
+    <option>Email</option>
+    <option>Área</option>
+  </select>
+  <br>
+  <input id="Parametros" [(ngModel)]="ResultParametros">
+  <button (click)="PorNome(ResultParametros)">Pesquisar</button>
+<br>
+
+  <div>
+    <table class="T0">
+      <thead>
+        <th class="T1">Nome</th>
+        <th class="T2">E-mail</th>
+        <th class="T3">Data de Nascimento</th>
+        <th class="T4">Sai Sozinho?</th>
+      </thead>
+      <tbody *ngFor="let cliente of this.clienteService.clientes">
+        <tr>
+          <td class="T1">{{ cliente.nome }}</td>
+          <td class="T2">{{ cliente.email }}</td>
+          <td class="T3">{{ cliente.dtNascim }}</td>
+          <td class="T4">{{ cliente.saSozinho }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <label>{{Resultado}}</label>
+</div>

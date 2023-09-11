@@ -1,0 +1,17 @@
+:root {
+    --cor-escura: rgb(116, 1, 70);
+    --cor-media: rgb(170, 94, 140);
+    --cor-clara: rgb(235, 167, 208);
+    --cor-mais-clara:fddfed;
+}
+
+/* html, body { height: 100%; }
+
+body { margin: 0; font-family: "Barlow", Roboto, "Helvetica Neue", sans-serif; } */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Barlow, Roboto, "Helvetica Neue", sans-serif; }
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: "Barlow", Roboto, "Helvetica Neue", sans-serif; }
+font-family: 'Barlow', sans-serif; */

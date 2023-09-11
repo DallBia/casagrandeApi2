@@ -1,0 +1,40 @@
+.base{
+  height: 78vh;
+  width: 100vw;
+  padding: 2%;
+}
+
+.superior {
+  border: solid 2px var(--cor-clara);
+  height: 85%;
+  width: 100%;
+  border-radius: 3vh;
+  border-left: none;
+  border-right: none;
+  padding: 2vh;
+}
+.superior::-webkit-scrollbar-thumb {
+  background-color: #fddfed;
+  border-radius: 6px;
+}
+
+.superior::-webkit-scrollbar {
+  width: 14px;
+  background-color:#ffffff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ffb6b6;
+  border-radius: 6px;
+  padding: 2px;
+}
+.tab{
+  width: 100%;
+  background-color: #fedef8;
+}
+.c1 {
+  width:40%;
+}
+
+.c2{
+  width: 15%;
+}

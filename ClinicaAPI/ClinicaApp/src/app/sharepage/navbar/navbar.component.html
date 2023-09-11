@@ -1,0 +1,57 @@
+<nav class="navbar-main">
+<header class="header-navbar">
+    <div class="header-left">
+      <img [src]="imageLogo" alt="Logo Casagrande" class="logo-header">
+     <div class="title-header">{{ headerService.linkAtivo }}</div>
+    </div>
+    <div class="Username">{{this.UsrLog}}</div>
+    <div class="header-right">
+      <img [src]="imageNot" alt="Notificação" class="sino">
+      <app-custom-date></app-custom-date>
+    </div>
+</header>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <!--<a class="navbar-brand"  routerLink="inicio" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Início</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>-->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="inicio" routerLinkActive="active-link" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="fichacliente" routerLinkActive="active-link" >Ficha de Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="cadprof" routerLinkActive="active-link" >Cadastro da Equipe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="protclin" routerLinkActive="active-link" >Prontuário Clínico</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="protadm" routerLinkActive="active-link" >Prontuário Administrativo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="agenda" routerLinkActive="active-link" >Agenda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="controleFinaceiro" routerLinkActive="active-link" >Controle Financeiro</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Usuário
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+            <a class="dropdown-item" >{{this.UsrLog}}</a>
+            <a class="dropdown-item" routerLink="login" routerLinkActive="active-link">Logoff</a>
+            <a class="dropdown-item" href="#">Alterar senha</a>
+            <a class="dropdown-item" routerLink="definitions" routerLinkActive="active-link">Definições</a>
+            <a class="dropdown-item" href="#"> ...</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</nav>
+

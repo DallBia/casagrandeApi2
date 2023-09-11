@@ -1,0 +1,13 @@
+<div>
+  <div>
+    <label class="labelfrm">Selecione:</label>
+    <select id="selectedOpcao" class="ctrlformulario" (change)="AttParam($event)">
+      <option value=""></option>
+      <option *ngFor="let opcao of opcoes" [value]="opcao">{{ opcao }}</option>
+  </select>
+  </div>
+  <div *ngIf="this.formD !== ''">
+    <label class="labelfrm">Parâmetro:</label>
+    <input id="parametro" class="ctrlformulario">
+</div>
+</div>

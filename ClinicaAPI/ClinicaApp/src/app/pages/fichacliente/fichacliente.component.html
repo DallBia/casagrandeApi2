@@ -1,0 +1,150 @@
+<div class="linha01">
+    <div class="ti-botao">
+        <button class="Rosa" (click)="CliqueNovo()">
+            <!-- {{this.selectedFicha}} -->
+            NOVO
+        </button>
+    </div>
+    <div class="ti-container">
+        <div class="ti-controles">
+            <div class="ti-select">
+                <app-formulario></app-formulario>
+            </div>
+            <!-- <div class="ti-filtro">
+                <app-textbox [label]="meutxt.label" [nome]="meutxt.nome" [largura]="meutxt.largura" [altura]="meutxt.altura"></app-textbox>
+            </div> -->
+        </div>
+        <div class="ti-img"><i class="material-icons" id="funil" >filter_alt</i></div>
+    </div>
+    <div class="nome-area" margin-left="2vh">
+        <div class="nome-selec"><label *ngIf="this.nCliente!==0">Ficha Nº {{this.Atual.Ficha}} - {{this.Atual.Nome}}</label></div>
+        <div class="linhadebaixo">
+            <div class="desde">
+                <label *ngIf="this.nCliente>0">Cliente desde {{this.Atual.Desde}}</label>
+            </div>
+            <div class="idade">
+                <label *ngIf="this.nCliente>0">Idade: {{this.Atual.Idade}}</label>
+            </div>
+            <div class="proxses">
+                <label *ngIf="this.nCliente>0">Próxima sessão: 28/07/2023</label>
+                <!-- Próxima sessão: 28/07/2023 -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="corpo">
+    <div class="grid-result">
+            <app-grid01></app-grid01>
+    </div>
+    <div class="lado-direito">
+         <div class="formul-result">
+          <div *ngIf="this.nCliente!=0">
+            <!-- <app-forms></app-forms> -->
+            <app-form-cliente (onSubmit)="buscarAlteracoes($event)" *ngIf="nChanges"></app-form-cliente>
+          </div>
+
+        </div>
+        <div class="botoes-finais">
+            <div class="btnAnexar">
+                <button class="Branco" id="Anexar" (click)="abrirModal()">
+                    Anexar Arquivos
+                </button>
+            </div>
+            <div class="btnSalvar">
+                <button class="Rosa" id="Salvar" (click)="this.formCliente.submit()">
+                    Salvar
+                </button>
+            </div>
+            <div class="btnFechar">
+                <button class="RosaEscuro" id="Cancelar">
+                  Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-->
+<div class="main-container">
+<div *ngFor="let botao of novo" class="botao-salvar">
+    <app-meu-botao class="novo"
+    [texto]="botao.texto"
+    [altura]="botao.altura"
+    [largura]="botao.largura"
+    [cor]="botao.cor"
+    [size]="botao.size">
+    </app-meu-botao>
+</div>
+<div *ngFor="let container of containers" class="container">
+    <app-container
+        [altura]="container.altura"
+        [largura]="container.largura">
+        <div *ngFor="let container of filtro" class="filtro">
+            <app-container
+            [altura]="container.altura"
+            [largura]="container.largura">
+            <input type="text" class="filtro-input">
+            </app-container>
+
+        </div>
+    <div class="filter">
+        <img [src]="imagefilter" class="filter-img">
+    </div>
+    </app-container>
+
+</div>
+<div class="grid-main">
+    <div class="grid">
+        <div *ngFor="let botao of botoes" class="grid-right">
+            <app-meu-botao class="grid-item"
+            [texto]="botao.texto"
+            [altura]="botao.altura"
+            [largura]="botao.largura">
+            </app-meu-botao>
+         </div>
+    </div>
+</div>
+</div>
+<div class="tabela">
+    <app-data-grid></app-data-grid>
+</div>
+
+<div *ngFor="let container of infoContainer" class="infoContainer">
+    <app-container
+    [altura]="container.altura"
+    [largura]="container.largura">
+    <div class="info-pessoa">
+        <label for="">Nome: </label>
+        <input type="text" class="input" value="{{ selectedName }}">
+        <br>
+        <label for="">Nascimento: </label>
+        <input type="text" class="input-idade" value="{{ selectedNascimento }}">
+        <br>
+        <label for="">Endereço: </label>
+        <input type="text" class="input">
+        <br>
+        <label for="">Telefone: </label>
+        <input type="text" class="input-tel">
+        <br>
+        <label for="">Nome do Responsável (1): </label>
+        <input type="text" class="input">
+        <br>
+        <label for="">Nome do Responsável (2): </label>
+        <input type="text" class="input">
+
+    </div>
+    </app-container>
+</div>
+<div class="botoes-end">
+<div *ngFor="let botao of salvarEnd" class="botoes">
+    <app-meu-botao
+    [texto]="botao.texto"
+    [altura]="botao.altura"
+    [largura]="botao.largura"
+    [cor]="botao.cor"
+    [size]="botao.size"
+    [fontCor]="botao.fontCor">
+    </app-meu-botao>
+</div>
+</div>
+</-->

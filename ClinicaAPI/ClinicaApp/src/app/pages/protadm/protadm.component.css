@@ -1,0 +1,24 @@
+.tabela {
+  height: 65vh;
+    margin: 2vh;
+    width: 47%;
+    overflow-y: auto;
+    border-left: solid 1px rgb(227, 203, 203);
+    border-top: solid 1px rgb(227, 203, 203);
+    border-bottom: solid 1px rgb(227, 203, 203);
+    border-right: none;
+}
+.tabela::-webkit-scrollbar-thumb {
+  background-color: #fddfed; 
+  border-radius: 6px;
+}
+
+.tabela::-webkit-scrollbar {
+  width: 14px;
+  background-color:#ffffff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ffb6b6;
+  border-radius: 6px;
+  padding: 2px;
+}

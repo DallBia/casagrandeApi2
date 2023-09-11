@@ -1,0 +1,71 @@
+<div Forml class="Interior">
+  <div class="superior">
+    <div class="EspacoFoto">
+      <img [src]="this.Atual.Foto" id="minhaImagem" class="Foto" (click)="selecionarImagem()">
+      <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)">
+    </div>
+    <div class="EspacoDoctos">
+    </div>
+  </div>
+  <form [formGroup]="clienteform" (ngSubmit)="submit()" #formDit="ngForm">
+    <div class="input_box">
+      <label for="" class="fLabel">Nome:</label>
+      <input type="text"  class="fCampo" formControlName="nome" placeholder="(insira o nome do cliente)" required>
+    </div>
+    <div>
+      <label for="" class="fLabel">Data de Nascim.:</label>
+      <input type="text"  class="fCampo" formControlName="dtNascim" placeholder="(dd/mm/aaaa)" required>
+    </div>
+    <div>
+      <label for="" class="fLabel">Identidade:</label>
+      <input type="text"  class="fCampo" formControlName="identidade" placeholder="(apenas números)" required>
+    </div>
+    <div>
+      <label for="" class="fLabel">E-mail:</label>
+      <input type="email"  class="fCampo" formControlName="email" placeholder="(emai.de@exemplo.com)" required>
+    </div>
+    <div>
+      <label for="" class="fLabel">Telefone Fixo:</label>
+      <input type="text"  class="fCampo" formControlName="telFixo" placeholder="(apenas números)" required>
+    </div>
+<div>
+<label for="" class="fLabel">Celular:</label>
+<input type="tel"  class="fCampo" formControlName="celular" placeholder="(apenas números)" required>
+</div>
+<div>
+<label for="" class="fLabel">Endereço:</label>
+<input type="text"  class="fCampo" formControlName="endereco" placeholder="(rua, número, complemento, bairro, cidade)" required>
+</div>
+<div>
+  <input type="checkbox"  class="fCheck" style="margin-right:4px;" formControlName="saSozinho">
+  <label for="" style="width: 40%; height: 20px;">Pode sair sozinho?</label>
+  <label for="" style="width: 30%; height: 20px;">Resp. Financeiro:</label>
+  <input type="text" formControlName="respFinanc" placeholder="(Mãe | Pai | Cliente)">
+</div>
+  <hr>
+  <label style="font-size: medium;font-weight: bold;color: var(--cor-escura);">DADOS DOS PAIS:</label>
+  <hr>
+  <div>
+    <label for="" class="fLabel">Nome da mãe:</label>
+    <input type="text"  class="fCampo" formControlName="mae" placeholder="(Nome completo da mãe do cliente)">
+  </div>
+  <input type="checkbox" class="fCheck" style="margin-right:4px;" formControlName="maeRestric">
+  <Label>A mãe possui restrição judicial e não pode se aproximar da criança</Label>
+  <div>
+  <label for="" class="fLabel">Nome do pai:</label>
+  <input type="text"  class="fCampo" formControlName="pai" placeholder="(Nome completo do pai do cliente)">
+</div>
+<input type="checkbox" class="fCheck" style="margin-right:4px;" formControlName="paiRestric">
+<Label>O pai possui restrição judicial e não pode se aproximar da criança</Label>
+<div>
+  <label for="" class="fLabel">Telefone Comercial:</label>
+  <input type="text"  class="fCampo" formControlName="telComercial" placeholder="(apenas números)">
+</div>
+<div style="Display: none">
+  <input type="text" style="Display: none" class="fCampo" formControlName="id" placeholder="(apenas números)">
+  <input type="text" style="Display: none" class="fCampo" formControlName="dtInclusao" placeholder="(apenas números)">
+  <input type="text" style="Display: none" class="fCampo" formControlName="areaSession" placeholder="(apenas números)">
+  <input type="checkbox" style="Display: none" class="fCheck" style="margin-right:4px;" formControlName="ativo">
+</div>
+</form>
+</div>

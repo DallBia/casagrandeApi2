@@ -1,0 +1,69 @@
+<div class="main-container">
+    <div class="lado-esquerdo">
+      <div class="superior-e">
+        <div class="se-left">
+          <button class="Novo">{{this.Ficha}}</button>
+        </div>
+        <div class="se-right" >
+          <label class="Nome">{{this.NomeCliente}}</label>
+        </div>
+      </div>
+      <div class="inferior-e">
+        <div class="bloco-antigo" [style.height]="MostraInfo ? '63%' : '100%'">
+
+        </div>
+        <div class="bloco-input" *ngIf="MostraInfo">
+          <app-bloco-notas></app-bloco-notas>
+        </div>
+      </div>
+    </div>
+
+    <div class="lado-direito">
+      <div class="superior-d">
+
+      </div>
+      <div class="e-foto">
+        <img *ngIf="idFoto !== ''" [src]="this.idFoto" class="id-Foto">
+      </div>
+      <div class="botoes">
+        <button class="btnBranco">
+          Anexar Documento
+        </button>
+        <button class="btnBranco">
+          Ver Documento
+        </button>
+        <button class="btnBranco">
+          Imprimir Relatório
+        </button>
+        <button class="btnBranco">
+          Buscar neste Prontuário
+        </button>
+        <button class="btnBranco" [style.color]="MostraInfo ? 'white' : 'black'" [style.background-color]="MostraInfo ? 'var(--cor-media)' : 'white'" (click)="newInfo(MostraInfo)">
+          {{MostraInfo ? 'Cancelar nova informação' : 'Inserir nova informação'}}
+        </button>
+        <button class="Salvar">
+          Salvar
+        </button>
+      </div>
+    </div>
+
+
+
+
+</div>
+<!--
+    <div class="botaoInfo">
+        <div class="btnBranco">
+          Anexar Documento
+        </div>
+        <!-- <div *ngFor="let botao of botoesInfo" class="botao">
+            <app-meu-botao
+            [texto]="botao.texto"
+            [altura]="botao.altura"
+            [largura]="botao.largura"
+            [cor]="botao.cor">
+            </app-meu-botao>
+        </div>
+          <button class="Salvar" (click)="newInfo(true)">Salvar</button>
+        </div>
+    </div> -->

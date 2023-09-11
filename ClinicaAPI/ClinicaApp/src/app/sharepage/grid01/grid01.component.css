@@ -1,0 +1,68 @@
+.table {
+    /* Você pode ajustar isso conforme necessário */
+      border-collapse: collapse;
+      width: 100%;
+      table-layout: fixed;
+      text-align: center;
+    }
+    .tabela {
+        padding: 1vh;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      /* Estilos para as linhas ímpares (opcional) */
+      tr:nth-child(odd) {
+        background-color: #ffffff;
+      }
+
+    .cabeçalho {
+        position: sticky;
+        color:var(--cor-escura);
+        font-weight: bold;
+        top: 0;
+        z-index: 10; /* para garantir que o cabeçalho permaneça no topo */
+        background-color:#fddfed;
+    }
+
+    .t001 {
+      /* Defina a altura que deseja */
+      width: 8%;   /* Isso garante que a largura seja ajustada automaticamente para manter a proporção da imagem */
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .t002 {
+        width: 5%;
+        text-align: center;
+      vertical-align: middle;
+    }
+
+
+
+    .t004 {
+        width: 8%;
+        text-align: center;
+      vertical-align: middle;
+    }
+    .t005 {
+        width: 10%;
+        text-align: center;
+      vertical-align: middle;
+    }
+    .t006 {
+      width: 15%;
+      text-align: center;
+    vertical-align: middle;
+  }
+  .t007 {
+    width: 8%;
+    text-align: center;
+  vertical-align: middle;
+}
+
+    .linhaDestacada {
+       font-weight: bold;
+       color:rgb(139, 0, 100)
+    }

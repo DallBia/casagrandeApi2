@@ -1,0 +1,19 @@
+#selectedOpcao {
+    border-radius: 2px;
+    border: solid 1px rgb(216, 194, 206);
+    width: 15vw;
+}
+.labelfrm{
+  margin-right: 5px;
+}
+.ctrlformulario {
+margin-left: 2px;
+height:30%;
+border-radius: 2px;
+border: solid 1px rgb(216, 194, 206);
+width: 15vw;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #ff66b2;
+}

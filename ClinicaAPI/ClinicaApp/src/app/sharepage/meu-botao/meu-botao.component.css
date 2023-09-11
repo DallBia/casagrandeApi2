@@ -1,0 +1,16 @@
+.botao{
+    /*box-shadow: 0;*/
+    
+    background-color: white;
+    border-radius: 9pt;
+    border-top: 2px solid var(--cor-media);
+    border-bottom: 2px solid var(--cor-media);
+    border-left: none;
+    border-right: none;
+   /* border-color: linear-gradient(to bottom, red, yellow 25%, yellow 75%, red);*/
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    
+}

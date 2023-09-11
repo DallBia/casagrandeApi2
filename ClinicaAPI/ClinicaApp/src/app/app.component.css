@@ -1,0 +1,25 @@
+*{
+    height: 100vh;
+    width: 100vw;
+}
+/* You can add global styles to this file, and also import other style files */
+body {
+  /* font-family: 'Barlow', sans-serif; */
+  font-family: 'Dosis', sans-serif;
+  /* font-family: 'PT Mono', monospace; */
+  }
+
+  .Dosis {
+    font-family: 'Dosis', sans-serif;
+    color: rgb(59, 17, 113);
+  }
+  .Barlow {
+    font-family: 'Barlow', sans-serif;
+    color: red;
+  }
+
+  .Mono {
+    font-family: 'PT Mono', monospace;
+    font-family: 'Chivo Mono', monospace;
+    color: blueviolet;
+  }

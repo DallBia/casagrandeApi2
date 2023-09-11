@@ -1,0 +1,47 @@
+.body {
+    font-size: 20pt;
+    color: var(--cor-media);
+}
+
+.QuadroLogin {
+    height: 40vh;
+    width: 30vw;
+    margin-right: 35vw;
+    margin-left: 35vw;
+    margin-top: 20vh;
+    border: solid 2px var(--cor-media);
+    border-radius: 5vh;
+    border-left: none;
+    border-right: none;
+    padding: 15px;
+    font-size: 20pt;
+    color: var(--cor-media);
+    text-align: center;
+    vertical-align: middle;
+    position: flex-block;
+}
+.botao {
+    background-color: var(--cor-clara);
+    padding: 10px;
+    border: solid 2px var(--cor-media);
+    border-radius: 2vh;
+    width: 40%;
+    border-left: none;
+    border-right: none;
+}
+.campo {
+    width: 80%;
+    border: solid 1px var(--cor-clara);
+    border-radius: 5px;
+    height: 25px;
+    margin: 10px;
+    font-size: 14px;
+}
+.campo:focus{
+  box-shadow: 0 0 5px pink;
+  border-color: fuchsia;
+}
+
+.texto {
+    margin:10px;
+}

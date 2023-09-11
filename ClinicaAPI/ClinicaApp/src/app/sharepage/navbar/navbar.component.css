@@ -1,0 +1,105 @@
+@import url("../../../styles.css");
+/*.navbar-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.9);
+}*/
+@media (max-width: 768px) {
+    .navbar-main {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.9);
+}
+}
+.header-navbar{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.Username {
+  color: var(--cor-media);
+  text-align: right;
+}
+
+.dropdown-menu {
+  color: var(--cor-media);
+  text-align: right;
+  position:fixed;
+  margin-right: 5px;
+}
+
+.header-left {
+    float: right;
+    display: flex; /* Torna os elementos filhos em um flex container */
+    align-items: center; /* Centraliza verticalmente os elementos filhos */
+}
+
+.logo-header {
+    height: 10vh; /* Ajuste a altura conforme necessário */
+    width: auto; /* Ajusta automaticamente a largura para manter a proporção */
+    margin-right: 0; /* Adiciona um espaço entre a imagem e o título */
+}
+
+.title-header {
+    font-size: 3.5vh;
+    color: var(--cor-media);
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+.header-right{
+    float: left;
+    display: flex;
+    align-items: center;
+}
+.header-right img, .header-right app-custom-date {
+    display: inline-block;
+    vertical-align: middle;
+}
+.header-right img {
+    filter: grayscale(100%);
+}
+.sino{
+    height: 3vh;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+
+
+}
+.navbar-light .navbar-nav .nav-link.active-link{
+    color: var(--cor-media);
+    font-weight: bold;
+
+}
+.navbar-expand-lg{
+    margin-bottom:0;
+    border-top: 1px solid black;
+}
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
+
+.nav-item {
+    margin-left:4vh ;
+    margin-right:4vh ;
+}
+.nav-link{
+    font-size: 2vh;
+}
+

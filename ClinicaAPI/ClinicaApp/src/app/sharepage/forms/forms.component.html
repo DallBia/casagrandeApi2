@@ -1,0 +1,8 @@
+<div class="superior">
+  <div class="EspacoFoto">
+    <img [src]="this.Atual.Foto" id="minhaImagem" class="Foto" (click)="selecionarImagem()">
+    <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)">
+  </div>
+  <div class="EspacoDoctos">
+  </div>
+</div>
