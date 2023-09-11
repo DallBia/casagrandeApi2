@@ -1,0 +1,23 @@
+
+      <table class="tabh">
+        <thead>
+          <th class="c1">Ação</th>
+          <th class="c2">Diretoria</th>
+          <th class="c2">Secretaria</th>
+          <th class="c2">Coordenação</th>
+          <th class="c2">Equipe clínica</th>
+          <th class="c2">Apenas a pessoa</th>
+        </thead>
+        <tbody class="tabb">
+          <tr *ngFor="let x of this.perfil" class="tabb">
+            <td class="c1">{{x.Id}}-{{x.Descricao}}</td>
+            <td class="c2"><input type="checkbox" [id]="x.Id + 'D'" [checked]="x.Dir"></td>
+            <td class="c2"><input type="checkbox" [id]="x.Id + 'S'" [checked]="x.Secr"></td>
+            <td class="c2"><input type="checkbox" [id]="x.Id + 'C'" [checked]="x.Coord"></td>
+            <td class="c2"><input type="checkbox" [id]="x.Id + 'E'" [checked]="x.Equipe"></td>
+            <td class="c2"><input type="checkbox" [id]="x.Id + 'P'" [checked]="x.SiMesmo"></td>
+        </tr>
+        </tbody>
+      </table>
+
+

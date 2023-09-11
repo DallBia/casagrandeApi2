@@ -43,6 +43,7 @@ import { RequestInterceptor } from '../app/pages/login/request.interceptor';
 import { ClienteService } from './services/cliente/cliente.service';
 import { UserService } from './services/user.service';
 import { DefinitionsComponent } from './pages/definitions/definitions.component';
+import { PerfilTabComponent } from './sharepage/perfil-tab/perfil-tab.component';
 registerLocaleData(localePt);
 
 export function tokenGetter() {
@@ -77,6 +78,7 @@ export function tokenGetter() {
     FormsEquiComponent,
     BlocoNotasComponent,
     DefinitionsComponent,
+    PerfilTabComponent,
 
   ],
 

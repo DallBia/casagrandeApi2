@@ -1,6 +1,6 @@
 export interface Perfil{
 
-  Id?: number;
+  Id: number;
   Descricao?: string;
   Help?: string;
   Dir?: boolean;
