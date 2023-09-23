@@ -131,7 +131,7 @@ namespace ClinicaAPI.Service.ClienteService
                     serviceResponse.Dados = null;
                     serviceResponse.Sucesso = false;
                 }
-                
+
 
                 _context.Clientes.Update(editCliente);
                 await _context.SaveChangesAsync();
@@ -225,10 +225,10 @@ namespace ClinicaAPI.Service.ClienteService
             }
             catch (Exception ex)
             {
-    serviceResponse.Mensagem = ex.Message;
-    serviceResponse.Sucesso = false;
-}
-return serviceResponse;
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Sucesso = false;
+            }
+            return serviceResponse;
         }
 
         public async Task<ServiceResponse<List<ClienteModel>>> GetClientebyNome(string Nome)

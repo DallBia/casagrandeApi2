@@ -3,7 +3,7 @@ using ClinicaAPI.DTO;
 using ClinicaAPI.Models;
 using ClinicaAPI.Service.ClienteService;
 using ClinicaAPI.Service.UserService;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -22,6 +22,8 @@ namespace ClinicaAPI.Controllers
         {
             _context = context;
         }
+
+
         [HttpPost]
         public IActionResult Login([FromBody] LoginDTO loginDetalhes)
         {
@@ -37,7 +39,7 @@ namespace ClinicaAPI.Controllers
                 return Unauthorized();
             }
         }
-     
+
         private UserModel ValidarUsuario(LoginDTO loginDetalhes)
         {
             var smartUser = _context.Users.Where(user =>
@@ -71,12 +73,107 @@ namespace ClinicaAPI.Controllers
                 issuer: issuer,
                 audience: audience,
                 permClaims,
-                expires: DateTime.Now.AddMinutes(20),
+                expires: DateTime.Now.AddMinutes(920), //tempo de duração do token
                 signingCredentials: credentials
             );
             var tokenHandler = new JwtSecurityTokenHandler();
             var stringToken = tokenHandler.WriteToken(token);
             return stringToken;
+        }
+
+        [Authorize]
+        [HttpPut("Editar")]
+        public async Task<ActionResult<ServiceResponse<List<UserModel>>>> UpdateUser(UserModel editUser)
+        {
+            ServiceResponse<List<UserModel>> serviceResponse = new ServiceResponse<List<UserModel>>();
+            try
+            {
+                UserModel user = _context.Users.AsNoTracking().FirstOrDefault(x => x.Id == editUser.Id);
+
+
+                if (user == null)
+                {
+                    serviceResponse.Mensagem = "Nenhum dado encontrado.";
+                    serviceResponse.Dados = null;
+                    serviceResponse.Sucesso = false;
+                }
+
+
+                _context.Users.Update(editUser);
+                await _context.SaveChangesAsync();
+                serviceResponse.Dados = _context.Users.ToList();
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Sucesso = false;
+            }
+            return serviceResponse;
+        }
+
+
+        [Authorize]
+        [HttpGet]
+        public async Task<ActionResult<ServiceResponse<List<UserModel>>>> GetUser()
+        {
+            ServiceResponse<List<UserModel>> serviceResponse = new ServiceResponse<List<UserModel>>();
+
+            try
+            {
+                serviceResponse.Dados = _context.Users.ToList();
+                if (serviceResponse.Dados.Count == 0)
+                {
+                    serviceResponse.Mensagem = "Nenhum dado encontrado.";
+                }
+                else
+                {
+                    foreach (var user in serviceResponse.Dados)
+                    {
+                        // Modifique o valor da propriedade SenhaHash aqui, se necessário
+                        user.SenhaHash = "secreta";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Sucesso = false;
+            }
+
+            return serviceResponse;
+        }
+
+
+        [Authorize]
+        [HttpPost("Novo")]
+        public async Task<ServiceResponse<List<UserModel>>> CreateUser(UserModel novoUser)
+        {
+            ServiceResponse<List<UserModel>> serviceResponse = new ServiceResponse<List<UserModel>>();
+
+            try
+            {
+                if (novoUser == null)
+                {
+                    serviceResponse.Dados = null;
+                    serviceResponse.Mensagem = "Informar dados...";
+                    serviceResponse.Sucesso = false;
+                    return serviceResponse;
+                }
+                _context.Add(novoUser);
+                await _context.SaveChangesAsync();
+                serviceResponse.Dados = _context.Users.ToList();
+                if (serviceResponse.Dados.Count == 0)
+                {
+                    serviceResponse.Mensagem = "Nenhum dado encontrado.";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Sucesso = false;
+            }
+            return serviceResponse;
         }
     }
 }

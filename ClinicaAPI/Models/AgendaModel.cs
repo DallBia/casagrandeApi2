@@ -1,5 +1,4 @@
 ﻿using ClinicaAPI.Enums;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System.ComponentModel.DataAnnotations;
 
 namespace ClinicaAPI.Models

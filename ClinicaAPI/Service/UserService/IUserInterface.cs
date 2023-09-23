@@ -1,6 +1,9 @@
-﻿namespace ClinicaAPI.Service.UserService
+﻿using ClinicaAPI.Models;
+
+namespace ClinicaAPI.Service.UserService
 {
     public interface IUserInterface
     {
+        
     }
 }

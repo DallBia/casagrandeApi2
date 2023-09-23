@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicaAPI.Controllers
 {
@@ -17,7 +13,7 @@ namespace ClinicaAPI.Controllers
                 return BadRequest("Nenhum arquivo foi enviado.");
 
             var path = Path.Combine(
-            Directory.GetCurrentDirectory(), 
+            Directory.GetCurrentDirectory(),
             "ClinicaApp", "src", "assets", "img", "Clientes", Nome);
 
             using (var stream = new FileStream(path, FileMode.Create))
@@ -27,6 +23,6 @@ namespace ClinicaAPI.Controllers
 
             return Ok(new { path });
         }
-        
+
     }
 }

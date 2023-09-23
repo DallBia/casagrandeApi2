@@ -1,8 +1,6 @@
 ﻿using ClinicaAPI.Models;
-using ClinicaAPI.Service.ClienteService;
 using ClinicaAPI.Service.PerfilService;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicaAPI.Controllers

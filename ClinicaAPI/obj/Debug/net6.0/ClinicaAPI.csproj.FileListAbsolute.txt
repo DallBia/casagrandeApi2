@@ -63,12 +63,6 @@ D:\Clinica\ClinicaAPI\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaApp\tsconfig
 D:\Clinica\ClinicaAPI\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\BCrypt.Net-Next.dll
 D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\appsettings.Development.json
 D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\appsettings.json
-D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaApp\angular.json
-D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaApp\package-lock.json
-D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaApp\package.json
-D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaApp\tsconfig.app.json
-D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaApp\tsconfig.json
-D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaApp\tsconfig.spec.json
 D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.exe
 D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.deps.json
 D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.runtimeconfig.json
@@ -134,3 +128,137 @@ D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt
 D:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.Security.Permissions.dll
 D:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.RazorAssemblyInfo.cache
 D:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.RazorAssemblyInfo.cs
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\appsettings.Development.json
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\appsettings.json
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.exe
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.deps.json
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.runtimeconfig.json
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.pdb
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\BCrypt.Net-Next.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Humanizer.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Mono.TextTemplating.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Npgsql.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.CodeDom.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.Security.Permissions.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.Text.Json.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.csproj.AssemblyReference.cache
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.GeneratedMSBuildEditorConfig.editorconfig
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.AssemblyInfoInputs.cache
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.AssemblyInfo.cs
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.csproj.CoreCompileInputs.cache
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.MvcApplicationPartsAssemblyInfo.cs
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.MvcApplicationPartsAssemblyInfo.cache
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.RazorAssemblyInfo.cache
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.RazorAssemblyInfo.cs
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.csproj.CopyComplete
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\refint\ClinicaAPI.dll
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.pdb
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.genruntimeconfig.cache
+E:\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ref\ClinicaAPI.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\appsettings.json
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.exe
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.deps.json
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.runtimeconfig.json
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\ClinicaAPI.pdb
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Npgsql.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.CodeDom.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.csproj.AssemblyReference.cache
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.AssemblyInfoInputs.cache
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.AssemblyInfo.cs
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.csproj.CoreCompileInputs.cache
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.RazorAssemblyInfo.cache
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.RazorAssemblyInfo.cs
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.csproj.CopyComplete
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\refint\ClinicaAPI.dll
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.pdb
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.genruntimeconfig.cache
+C:\Users\Tiago Bianchini\Desktop\Estudo\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ref\ClinicaAPI.dll

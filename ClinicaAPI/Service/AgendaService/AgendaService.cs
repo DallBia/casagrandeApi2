@@ -1,6 +1,5 @@
 ﻿using ClinicaAPI.DataContext;
 using ClinicaAPI.Models;
-using ClinicaAPI.Service.AgendaService;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClinicaAPI.Service.AgendaService

@@ -92,6 +92,9 @@ namespace ClinicaAPI.Migrations
                     b.Property<DateTime>("ClienteDesde")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Cpf")
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("DtInclusao")
                         .HasColumnType("timestamp with time zone");
 
@@ -112,8 +115,31 @@ namespace ClinicaAPI.Migrations
                     b.Property<string>("Mae")
                         .HasColumnType("text");
 
+                    b.Property<string>("MaeCelular")
+                        .HasColumnType("text");
+
+                    b.Property<string>("MaeCpf")
+                        .HasColumnType("text");
+
+                    b.Property<string>("MaeEmail")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("MaeEndereco")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("MaeIdentidade")
+                        .HasColumnType("text");
+
                     b.Property<bool>("MaeRestric")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("MaeTelComercial")
+                        .HasColumnType("text");
+
+                    b.Property<string>("MaeTelFixo")
+                        .HasColumnType("text");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -122,8 +148,31 @@ namespace ClinicaAPI.Migrations
                     b.Property<string>("Pai")
                         .HasColumnType("text");
 
+                    b.Property<string>("PaiCelular")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PaiCpf")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PaiEmail")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PaiEndereco")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PaiIdentidade")
+                        .HasColumnType("text");
+
                     b.Property<bool>("PaiRestric")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("PaiTelComercial")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PaiTelFixo")
+                        .HasColumnType("text");
 
                     b.Property<int>("RespFinanc")
                         .HasColumnType("integer");
@@ -322,9 +371,6 @@ namespace ClinicaAPI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Clinico")
-                        .HasColumnType("boolean");
-
                     b.Property<DateTime>("DtInsercao")
                         .HasColumnType("timestamp with time zone");
 
@@ -335,6 +381,10 @@ namespace ClinicaAPI.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Texto")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Tipo")
                         .IsRequired()
                         .HasColumnType("text");
 
