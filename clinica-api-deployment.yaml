@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clinica-api-deployment
+  labels:
+    app: clinica-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clinica-api
+  template:
+    metadata:
+      labels:
+        app: clinica-api
+    spec:
+      containers:
+      - name: clinica-api
+        image: gcr.io/clinica-clinica-398800/clinica-api:v1.1
+        resources:
+          requests:
+            memory: "60Mi"
+            cpu: "100m"
+          limits:
+            memory: "100Mi"
+            cpu: "100m"
+        ports:
+          - name: http-port
+            containerPort: 80
+          - name: https-port
+            containerPort: 443
+        env:
+          - name: ASPNETCORE_ENVIRONMENT
+            value: "Development"
+          - name: TZ
+            value: "America/Sao_Paulo"
