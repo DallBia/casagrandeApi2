@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yCDw/5AqTXwMy7nWW3FRI0lcgTc4lFj/mJn+ISGRYTOKiCblVxzlqBmYo011GWIioJ5OlKAzPX/QbddRog0pbA==",
+  "dgSpecHash": "twhaOg1iIotcl1U6+vjpkET6HLg4xivT5KRbVdzB//VRluVYQjvnK6zNQZQt8616DRvT01vegp9o0fM/5+9StQ==",
   "success": true,
-  "projectFilePath": "E:\\Estudo\\ClinicaAPI\\ClinicaAPI\\ClinicaAPI.csproj",
+  "projectFilePath": "D:\\clin\\ClinicaAPI\\ClinicaAPI\\ClinicaAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
