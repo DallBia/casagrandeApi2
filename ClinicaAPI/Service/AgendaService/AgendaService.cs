@@ -24,7 +24,7 @@ public class AgendaService : IAgendaInterface
         {
             // Consulta no banco de dados para encontrar agendas na data especificada (dia).
             List<AgendaModel> agendas = await _context.Agendas
-                .Where(a => a.Dia == dia)
+                .Where(a => a.dia == dia)
                 .ToListAsync();
 
             serviceResponse.Dados = agendas;
@@ -62,48 +62,46 @@ public class AgendaService : IAgendaInterface
         return serviceResponse;
     }
 
-    public async Task<ServiceResponse<AgendaModel>> UpdateAgenda(int id, AgendaModel agendaAtualizada)
-    {
-        ServiceResponse<AgendaModel> serviceResponse = new ServiceResponse<AgendaModel>();
 
-        try
-        {
-            var agendaExistente = await _context.Agendas.FindAsync(id);
+   public async Task<ServiceResponse<AgendaModel>> UpdateAgenda(int id, AgendaModel agendaAtualizada)
+     {
+         ServiceResponse<AgendaModel> serviceResponse = new ServiceResponse<AgendaModel>();
 
-            if (agendaExistente == null)
-            {
-                serviceResponse.Mensagem = "Agenda não encontrada.";
-                return serviceResponse;
-            }
+         try
+         {
+             /*var agendaExistente = await _context.Agendas.FindAsync(id);*/
+            var agendaExistente = _context.Agendas.AsNoTracking().FirstOrDefault(x => x.id == agendaAtualizada.id);
 
-            // Atualize os campos necessários da agenda existente
+             if (agendaExistente == null)
+             {
+                 serviceResponse.Mensagem = "Agenda não encontrada.";
+                 return serviceResponse;
+             }
 
-            agendaExistente.IdCliente = agendaAtualizada.IdCliente;
-            agendaExistente.IdFuncAlt = agendaAtualizada.IdFuncAlt;
-            agendaExistente.DtAlt= DateTime.Now.ToLocalTime();
-            agendaExistente.Horario = agendaAtualizada.Horario;
-            agendaExistente.Sala = agendaAtualizada.Sala;
-            agendaExistente.Unidade = agendaAtualizada.Unidade;
-            agendaExistente.Dia = agendaAtualizada.Dia;
-            agendaExistente.Repeticao = agendaAtualizada.Repeticao;
-            agendaExistente.Subtitulo = agendaAtualizada.Subtitulo;
-            agendaExistente.Status = agendaAtualizada.Status;
-            agendaExistente.Historico = agendaAtualizada.Historico;
-            agendaExistente.Obs = agendaAtualizada.Obs; 
+             agendaExistente.idCliente = agendaAtualizada.idCliente;
+             agendaExistente.idFuncAlt = agendaAtualizada.idFuncAlt;
+             agendaExistente.dtAlt= DateTime.UtcNow;
+            agendaExistente.horario = agendaAtualizada.horario;
+             agendaExistente.sala = agendaAtualizada.sala;
+             agendaExistente.unidade = agendaAtualizada.unidade;
+             agendaExistente.dia = agendaAtualizada.dia;
+             agendaExistente.repeticao = agendaAtualizada.repeticao;
+             agendaExistente.subtitulo = agendaAtualizada.subtitulo;
+             agendaExistente.status = agendaAtualizada.status;
+             agendaExistente.historico = agendaAtualizada.historico;
+             agendaExistente.obs = agendaAtualizada.obs; 
 
+     _context.Agendas.Update(agendaExistente);
+             await _context.SaveChangesAsync();
+             serviceResponse.Dados = agendaExistente;
+         }
+         catch (Exception ex)
+         {
+             serviceResponse.Mensagem = ex.Message;
+             serviceResponse.Sucesso = false;
+         }
 
-    // ... Atualize outras propriedades conforme necessário
+         return serviceResponse;
+     }
 
-    _context.Agendas.Update(agendaExistente);
-            await _context.SaveChangesAsync();
-            serviceResponse.Dados = agendaExistente;
-        }
-        catch (Exception ex)
-        {
-            serviceResponse.Mensagem = ex.Message;
-            serviceResponse.Sucesso = false;
-        }
-
-        return serviceResponse;
-    }
 }

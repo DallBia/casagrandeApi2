@@ -7,5 +7,5 @@ public interface IAgendaInterface
 {
     Task<ServiceResponse<List<AgendaModel>>> GetAgendaByDate(DateOnly dia);
     Task<ServiceResponse<AgendaModel>> CreateAgenda(AgendaModel novaAgenda);
-    Task<ServiceResponse<AgendaModel>> UpdateAgenda(int id, AgendaModel agendaAtualizada);
+    Task<ServiceResponse<AgendaModel>> UpdateAgenda(int id, AgendaModel editAgenda);
 }

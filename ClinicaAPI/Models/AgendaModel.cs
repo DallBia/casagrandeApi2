@@ -6,19 +6,19 @@ namespace ClinicaAPI.Models
     public class AgendaModel
     {
         [Key]
-        public int Id { get; set; }
-        public int? IdCliente { get; set; }
-        public int IdFuncAlt { get; set; }
-        public DateTime DtAlt { get; set; } = DateTime.Now.ToLocalTime();
-        public string Horario { get; set; }
-        public int Sala { get; set; }
-        public int Unidade { get; set; }
-        public DateOnly Dia { get; set; }
-        public string DiaDaSemana
+        public int id { get; set; }
+        public int? idCliente { get; set; }
+        public int idFuncAlt { get; set; }
+        public DateTime dtAlt { get; set; } = DateTime.UtcNow;
+        public string horario { get; set; }
+        public int sala { get; set; }
+        public int unidade { get; set; }
+        public DateOnly dia { get; set; }
+        public string diaDaSemana
         {
             get
             {
-                return DiaDaSemanaParaPortugues(Dia.DayOfWeek);
+                return DiaDaSemanaParaPortugues(dia.DayOfWeek);
             }
         }
 
@@ -36,11 +36,11 @@ namespace ClinicaAPI.Models
                 default: throw new ArgumentException("dia inválido");
             }
         }
-        public ReptEnum Repeticao { get; set; }
-        public string? Subtitulo { get; set; }
-        public StatusEnum Status { get; set; } = 0;
-        public string? Historico { get; set; }
-        public string? Obs { get; set; }
+        public ReptEnum repeticao { get; set; }
+        public string? subtitulo { get; set; }
+        public StatusEnum status { get; set; } = 0;
+        public string? historico { get; set; }
+        public string? obs { get; set; }
 
     }
 }

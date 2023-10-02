@@ -24,50 +24,50 @@ namespace ClinicaAPI.Migrations
 
             modelBuilder.Entity("ClinicaAPI.Models.AgendaModel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<DateOnly>("Dia")
+                    b.Property<DateOnly>("dia")
                         .HasColumnType("date");
 
-                    b.Property<DateTime>("DtAlt")
+                    b.Property<DateTime>("dtAlt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Historico")
+                    b.Property<string>("historico")
                         .HasColumnType("text");
 
-                    b.Property<string>("Horario")
+                    b.Property<string>("horario")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("IdCliente")
+                    b.Property<int?>("idCliente")
                         .HasColumnType("integer");
 
-                    b.Property<int>("IdFuncAlt")
+                    b.Property<int>("idFuncAlt")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Obs")
+                    b.Property<string>("obs")
                         .HasColumnType("text");
 
-                    b.Property<int>("Repeticao")
+                    b.Property<int>("repeticao")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Sala")
+                    b.Property<int>("sala")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("status")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Subtitulo")
+                    b.Property<string>("subtitulo")
                         .HasColumnType("text");
 
-                    b.Property<int>("Unidade")
+                    b.Property<int>("unidade")
                         .HasColumnType("integer");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Agendas");
                 });

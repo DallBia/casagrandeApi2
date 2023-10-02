@@ -36,11 +36,12 @@ public class AgendaController : ControllerBase
         ServiceResponse<AgendaModel> serviceResponse = await _agendaInterface.CreateAgenda(novaAgenda);
         return Ok(serviceResponse);
     }
-
+    
     [HttpPut("UpdateAgenda/{id}")]
     public async Task<ActionResult<ServiceResponse<AgendaModel>>> UpdateAgenda(int id, [FromBody] AgendaModel agendaAtualizada)
     {
         ServiceResponse<AgendaModel> serviceResponse = await _agendaInterface.UpdateAgenda(id, agendaAtualizada);
         return Ok(serviceResponse);
     }
+    
 }
