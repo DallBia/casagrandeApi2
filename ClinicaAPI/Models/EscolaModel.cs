@@ -6,13 +6,13 @@ namespace ClinicaAPI.Models
     public class EscolaModel
     {
         [Key]
-        public int Id { get; set; }
-        public int IdCliente { get; set; }
-        public int? AnoLetivo { get; set; }
-        public string? Serie { get; set; }
-        public string? Escola { get; set; }
-        public int? TelEscola { get; set; }
-        public string? Professor { get; set; }
-        public PeriodoEnum Periodo { get; set; }
+        public int id { get; set; }
+        public int idCliente { get; set; }
+        public int? anoLetivo { get; set; }
+        public string? serie { get; set; }
+        public string? escola { get; set; }
+        public int? telEscola { get; set; }
+        public string? professor { get; set; }
+        public PeriodoEnum periodo { get; set; }
     }
 }

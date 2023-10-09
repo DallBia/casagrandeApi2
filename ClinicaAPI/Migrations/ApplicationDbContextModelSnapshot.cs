@@ -193,100 +193,103 @@ namespace ClinicaAPI.Migrations
 
             modelBuilder.Entity("ClinicaAPI.Models.DocumentoModel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<string>("CliOuProf")
+                    b.Property<string>("cliOuProf")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Descricao")
+                    b.Property<string>("descricao")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("DtInclusao")
+                    b.Property<DateTime>("dtInclusao")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("IdPessoa")
+                    b.Property<int>("idPessoa")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Tipo")
+                    b.Property<string>("tipo")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Documentos");
                 });
 
             modelBuilder.Entity("ClinicaAPI.Models.DonoSalaModel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<DateOnly?>("DataFim")
+                    b.Property<string>("area")
+                        .HasColumnType("text");
+
+                    b.Property<DateOnly?>("dataFim")
                         .HasColumnType("date");
 
-                    b.Property<DateOnly>("DataInicio")
+                    b.Property<DateOnly>("dataInicio")
                         .HasColumnType("date");
 
-                    b.Property<string>("DiaSemana")
+                    b.Property<string>("diaSemana")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("IdProfissional")
+                    b.Property<int?>("idProfissional")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Periodo")
+                    b.Property<string>("periodo")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("Sala")
+                    b.Property<int>("sala")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Unidade")
+                    b.Property<int>("unidade")
                         .HasColumnType("integer");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("DonoSalas");
                 });
 
             modelBuilder.Entity("ClinicaAPI.Models.EscolaModel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<int?>("AnoLetivo")
+                    b.Property<int?>("anoLetivo")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Escola")
+                    b.Property<string>("escola")
                         .HasColumnType("text");
 
-                    b.Property<int>("IdCliente")
+                    b.Property<int>("idCliente")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Periodo")
+                    b.Property<int>("periodo")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Professor")
+                    b.Property<string>("professor")
                         .HasColumnType("text");
 
-                    b.Property<string>("Serie")
+                    b.Property<string>("serie")
                         .HasColumnType("text");
 
-                    b.Property<int?>("TelEscola")
+                    b.Property<int?>("telEscola")
                         .HasColumnType("integer");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Escolas");
                 });

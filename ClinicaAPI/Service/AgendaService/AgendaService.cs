@@ -104,4 +104,68 @@ public class AgendaService : IAgendaInterface
          return serviceResponse;
      }
 
+    public async Task<ServiceResponse<AgendaModel>> ValidAgenda(AgendaModel testAgenda)
+    {
+        ServiceResponse<AgendaModel> serviceResponse = new ServiceResponse<AgendaModel>();
+        try { 
+            AgendaModel agendaExistente = _context.Agendas
+                .FirstOrDefault(x => x.dia == testAgenda.dia
+                                 && x.sala == testAgenda.sala
+                                 && x.unidade == testAgenda.unidade);
+
+            if (agendaExistente != null)
+            {
+
+                agendaExistente.id = testAgenda.id;
+                agendaExistente.idCliente = testAgenda.idCliente;
+                agendaExistente.idFuncAlt = testAgenda.idFuncAlt;
+                agendaExistente.dtAlt = testAgenda.dtAlt;
+                agendaExistente.horario = testAgenda.horario;
+                agendaExistente.sala = testAgenda.sala;
+                agendaExistente.unidade = testAgenda.unidade;
+                agendaExistente.repeticao = testAgenda.repeticao;
+                agendaExistente.subtitulo = testAgenda.subtitulo;
+                agendaExistente.status = testAgenda.status;
+                agendaExistente.historico = testAgenda.historico;
+                agendaExistente.obs = testAgenda.obs;
+
+
+                _context.Agendas.Update(agendaExistente);
+                serviceResponse.Mensagem = "Atualizado.";
+            }
+            else
+            {
+                // Se não existir, criar um novo registro
+                AgendaModel novoRegistro = new AgendaModel
+                {
+                id = testAgenda.id,
+                idCliente = testAgenda.idCliente,
+                idFuncAlt = testAgenda.idFuncAlt,
+                dtAlt = testAgenda.dtAlt,
+                horario = testAgenda.horario,
+                sala = testAgenda.sala,
+                unidade = testAgenda.unidade,
+                repeticao = testAgenda.repeticao,
+                subtitulo = testAgenda.subtitulo,
+                status = testAgenda.status,
+                historico = testAgenda.historico,
+                obs = testAgenda.obs
+            };
+
+                _context.Agendas.Add(novoRegistro);
+                serviceResponse.Mensagem = "Criado.";
+            }
+
+            await _context.SaveChangesAsync();            
+            serviceResponse.Sucesso = true;
+        }
+        catch (Exception ex)
+        {
+            // Tratar exceções, se necessário
+            serviceResponse.Mensagem = "Erro ao realizar operação: " + ex.Message;
+            serviceResponse.Sucesso = false;
+        }
+
+        return serviceResponse;
+    }
 }

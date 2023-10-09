@@ -32,7 +32,7 @@ namespace ClinicaAPI.Models
                 case DayOfWeek.Wednesday: return "QUA";
                 case DayOfWeek.Thursday: return "QUI";
                 case DayOfWeek.Friday: return "SEX";
-                case DayOfWeek.Saturday: return "SAB";
+                case DayOfWeek.Saturday: return "SÁB";
                 default: throw new ArgumentException("dia inválido");
             }
         }

@@ -5,12 +5,12 @@ namespace ClinicaAPI.Models
     public class DocumentoModel
     {
         [Key]
-        public int Id { get; set; }
-        public int IdPessoa { get; set; }
-        public string CliOuProf { get; set; }
-        public string Tipo { get; set; }
-        public string? Descricao { get; set; }
-        public DateTime DtInclusao { get; set; }
+        public int id { get; set; }
+        public int idPessoa { get; set; }
+        public string cliOuProf { get; set; }
+        public string tipo { get; set; }
+        public string? descricao { get; set; }
+        public DateTime dtInclusao { get; set; }
 
 
     }

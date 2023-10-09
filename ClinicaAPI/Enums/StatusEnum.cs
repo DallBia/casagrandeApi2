@@ -10,6 +10,7 @@ namespace ClinicaAPI.Enums
         Pendente,
         Realizado,
         Desmarcado,
-        Falta
+        Falta,
+        Sala
     }
 }

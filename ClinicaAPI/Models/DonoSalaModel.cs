@@ -5,13 +5,14 @@ namespace ClinicaAPI.Models
     public class DonoSalaModel
     {
         [Key]
-        public int Id { get; set; }
-        public int Unidade { get; set; }
-        public int Sala { get; set; }
-        public int? IdProfissional { get; set; }
-        public string DiaSemana { get; set; }
-        public DateOnly DataInicio { get; set; }
-        public DateOnly? DataFim { get; set; }
-        public string Periodo { get; set; }
+        public int id { get; set; }
+        public int unidade { get; set; }
+        public int sala { get; set; }
+        public int? idProfissional { get; set; }
+        public string? area { get; set; }
+        public string diaSemana { get; set; }
+        public DateOnly dataInicio { get; set; }
+        public DateOnly? dataFim { get; set; }
+        public string periodo { get; set; }
     }
 }

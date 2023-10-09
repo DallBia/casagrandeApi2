@@ -5,10 +5,11 @@ namespace ClinicaAPI.Enums
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum ReptEnum
     {
-        Sessão_Única,
+        Unica,
+        Diaria,
         Semanal,
         Quinzenal,
         Mensal,
-        Terminar_Repetições
+        Cancelar
     }
 }

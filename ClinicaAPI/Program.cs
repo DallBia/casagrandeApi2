@@ -1,5 +1,6 @@
 using ClinicaAPI.DataContext;
 using ClinicaAPI.Service.ClienteService;
+using ClinicaAPI.Service.DonoSalaService;
 using ClinicaAPI.Service.FormacaoService;
 using ClinicaAPI.Service.PerfilService;
 using ClinicaAPI.Service.ProntuarioService;
@@ -56,7 +57,7 @@ builder.Services.AddScoped<IFormacaoInterface, FormacaoService>();
 builder.Services.AddScoped<IUserInterface, UserService>();
 builder.Services.AddScoped<IProntuarioInterface, ProntuarioService>();
 builder.Services.AddScoped<IAgendaInterface, AgendaService>();
-
+builder.Services.AddScoped<IDonoSalaInterface, DonoSalaService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -65,8 +66,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowMyOrigin",
-        builder => builder.WithOrigins("http://35.232.35.159")
-       // builder => builder.WithOrigins("http://localhost:4200")
+        //builder => builder.WithOrigins("http://35.232.35.159")
+        builder => builder.WithOrigins("http://localhost:4200")
                           .AllowAnyMethod()
                           .AllowAnyHeader());
 });
