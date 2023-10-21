@@ -17,7 +17,7 @@ namespace ClinicaAPI.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.10")
+                .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -332,6 +332,43 @@ namespace ClinicaAPI.Migrations
                     b.ToTable("Formacaos");
                 });
 
+            modelBuilder.Entity("ClinicaAPI.Models.InfoModel", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<string>("destinat")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateOnly?>("dtFim")
+                        .HasColumnType("date");
+
+                    b.Property<DateOnly>("dtInicio")
+                        .HasColumnType("date");
+
+                    b.Property<int>("idFuncAlt")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("nomeInfo")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("subtitulo")
+                        .HasColumnType("text");
+
+                    b.Property<string>("tipoInfo")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Infos");
+                });
+
             modelBuilder.Entity("ClinicaAPI.Models.PerfilModel", b =>
                 {
                     b.Property<int>("Id")
@@ -398,58 +435,58 @@ namespace ClinicaAPI.Migrations
 
             modelBuilder.Entity("ClinicaAPI.Models.UserModel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<string>("AreaSession")
+                    b.Property<string>("areaSession")
                         .HasColumnType("text");
 
-                    b.Property<bool>("Ativo")
+                    b.Property<bool>("ativo")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("CPF")
+                    b.Property<string>("celular")
                         .HasColumnType("text");
 
-                    b.Property<string>("Celular")
+                    b.Property<string>("cpf")
                         .HasColumnType("text");
 
-                    b.Property<DateOnly>("DtAdmis")
+                    b.Property<DateOnly>("dtAdmis")
                         .HasColumnType("date");
 
-                    b.Property<DateOnly?>("DtDeslig")
+                    b.Property<DateOnly?>("dtDeslig")
                         .HasColumnType("date");
 
-                    b.Property<DateOnly>("DtNasc")
+                    b.Property<DateOnly>("dtNasc")
                         .HasColumnType("date");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("email")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Endereco")
+                    b.Property<string>("endereco")
                         .HasColumnType("text");
 
-                    b.Property<int>("IdPerfil")
+                    b.Property<int>("idPerfil")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("nome")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("RG")
+                    b.Property<string>("rg")
                         .HasColumnType("text");
 
-                    b.Property<string>("SenhaHash")
+                    b.Property<string>("senhaHash")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("TelFixo")
+                    b.Property<string>("telFixo")
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Users");
                 });

@@ -1,0 +1,90 @@
+﻿using ClinicaAPI.DataContext;
+using ClinicaAPI.DTO;
+using ClinicaAPI.Models;
+using ClinicaAPI.Service.ClienteService;
+using ClinicaAPI.Service.ColaboradorService;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Exchange.WebServices.Data;
+
+
+namespace ClinicaAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ColaboradorController : ControllerBase
+    {
+        private readonly IColaboradorInterface _colaboradorInterface;
+        private readonly ApplicationDbContext _context;
+        public ColaboradorController(IColaboradorInterface colaboradorInterface, ApplicationDbContext context)
+        {
+            _colaboradorInterface = colaboradorInterface;
+            _context = context;
+        }
+        
+
+
+        [Authorize]
+        [HttpPut("Editar")]
+        public async Task<ActionResult<ServiceResponse<List<UserModel>>>> UpdateColaborador(UserModel editUser)
+        {
+            ServiceResponse<List<UserModel>> serviceResponse = await _colaboradorInterface.UpdateColaborador(editUser);
+            return Ok(serviceResponse);
+        }
+
+        [Authorize]
+        [HttpPost("AltSen")]
+        public async Task<IActionResult> LoginAsync([FromBody] LoginDTO loginDetalhes)
+        {
+            ServiceResponse<string> serviceResponse = new ServiceResponse<string>();
+            try
+            {
+                var xId = int.Parse(loginDetalhes.Usuario);
+                var novaSenha = loginDetalhes.Senha;
+                var User = _context.Users.AsNoTracking().FirstOrDefault(x => x.id == xId);
+                if (User == null)
+                {
+                    serviceResponse.Mensagem = "Nenhum dado encontrado.";
+                    serviceResponse.Dados = "fracasso";
+                    serviceResponse.Sucesso = false;
+                }
+                else
+                {
+                    if (novaSenha != "")
+                    {
+                        User.senhaHash = novaSenha;
+                    }
+
+                    if (User.dtDeslig.ToString() == "1900-01-01" || User.dtDeslig.ToString() == "01/01/1900")
+                    {
+                        User.dtDeslig = null;
+                        User.ativo = true;
+                    }
+
+                }
+                _context.Users.Update(User);
+                await _context.SaveChangesAsync();
+                User.senhaHash = "secreta";
+                serviceResponse.Dados = "sucesso";
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Dados = "fracasso";
+                serviceResponse.Sucesso = false;
+            }
+            return Ok(serviceResponse);
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult<ServiceResponse<List<UserModel>>>> CreateColaborador(UserModel novoColaborador)
+        {
+            return Ok(await _colaboradorInterface.CreateColaborador(novoColaborador));
+        }
+    }
+}

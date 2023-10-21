@@ -5,21 +5,21 @@ namespace ClinicaAPI.Models
     public class UserModel
     {
         [Key]
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public DateOnly DtNasc { get; set; }
-        public string? RG { get; set; }
-        public string? CPF { get; set; }
-        public string? Endereco { get; set; }
-        public string? TelFixo { get; set; }
-        public string? Celular { get; set; }
-        public string Email { get; set; }
-        public DateOnly DtAdmis { get; set; } = DateOnly.FromDateTime(DateTime.Now.ToLocalTime());
-        public DateOnly? DtDeslig { get; set; }
-        public int IdPerfil { get; set; }
-        public bool Ativo { get; set; } = true;
-        public string? AreaSession { get; set; }
-        public string SenhaHash { get; set; }
+        public int id { get; set; }
+        public string nome { get; set; }
+        public DateOnly dtNasc { get; set; }
+        public string? rg { get; set; }
+        public string? cpf { get; set; }
+        public string? endereco { get; set; }
+        public string? telFixo { get; set; }
+        public string? celular { get; set; }
+        public string email { get; set; }
+        public DateOnly dtAdmis { get; set; } 
+        public DateOnly? dtDeslig { get; set; }
+        public int idPerfil { get; set; }
+        public bool ativo { get; set; } = true;
+        public string? areaSession { get; set; }
+        public string senhaHash { get; set; }
     }
 
 }

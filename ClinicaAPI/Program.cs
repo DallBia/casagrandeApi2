@@ -1,17 +1,24 @@
 using ClinicaAPI.DataContext;
+using ClinicaAPI.Models;
 using ClinicaAPI.Service.ClienteService;
 using ClinicaAPI.Service.DonoSalaService;
+using ClinicaAPI.Service.EmailService;
 using ClinicaAPI.Service.FormacaoService;
 using ClinicaAPI.Service.PerfilService;
 using ClinicaAPI.Service.ProntuarioService;
 using ClinicaAPI.Service.UserService;
+using ClinicaAPI.Service.EmailService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using ClinicaAPI.Service.ColaboradorService;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 var configuration = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
@@ -58,6 +65,11 @@ builder.Services.AddScoped<IUserInterface, UserService>();
 builder.Services.AddScoped<IProntuarioInterface, ProntuarioService>();
 builder.Services.AddScoped<IAgendaInterface, AgendaService>();
 builder.Services.AddScoped<IDonoSalaInterface, DonoSalaService>();
+builder.Services.AddScoped<IEmailInterface, EmailService>();
+builder.Services.AddScoped<IColaboradorInterface, ColaboradorService>();
+
+
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -73,6 +85,15 @@ builder.Services.AddCors(options =>
 });
 
 //======================================
+
+/*
+builder.Services.AddAuthentication().AddGoogle(options =>
+{
+    options.ClientId = "966741631742-sjsrqt2f8251f7qc0b48i2qcnrsi7tk2.apps.googleusercontent.com";
+    options.ClientSecret = "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";
+});
+*/
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
@@ -90,6 +111,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 //====================================
 
+builder.Services.Configure<EmailConfig>(builder.Configuration.GetSection("EmailConfig"));
 
 
 var app = builder.Build();
@@ -100,6 +122,21 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+app.UseStaticFiles();
+
+app.UseRouting();
+
 
 app.UseCors("AllowMyOrigin");
 

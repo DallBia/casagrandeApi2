@@ -1,6 +1,7 @@
 ﻿using ClinicaAPI.DataContext;
 using ClinicaAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using ClinicaAPI.Service.EmailService;
 
 namespace ClinicaAPI.Service.UserService
 {
@@ -12,6 +13,7 @@ namespace ClinicaAPI.Service.UserService
         {
             _context = context;
         }
+
         public async Task<ServiceResponse<List<UserModel>>> CreateUser(UserModel novoUser)
         {
             ServiceResponse<List<UserModel>> serviceResponse = new ServiceResponse<List<UserModel>>();
@@ -48,7 +50,7 @@ namespace ClinicaAPI.Service.UserService
 
             try
             {
-                UserModel User = _context.Users.FirstOrDefault(x => x.Id == Id);
+                UserModel User = _context.Users.FirstOrDefault(x => x.id == Id);
 
 
                 if (User == null)
@@ -57,7 +59,7 @@ namespace ClinicaAPI.Service.UserService
                     serviceResponse.Dados = null;
                     serviceResponse.Sucesso = false;
                 }
-                User.SenhaHash = "secreta";
+                User.senhaHash = "secreta";
                 serviceResponse.Dados = User;
             }
             catch (Exception ex)
@@ -75,7 +77,7 @@ namespace ClinicaAPI.Service.UserService
             ServiceResponse<List<UserModel>> serviceResponse = new ServiceResponse<List<UserModel>>();
             try
             {
-                UserModel User = _context.Users.AsNoTracking().FirstOrDefault(x => x.Id == editUser.Id);
+                UserModel User = _context.Users.AsNoTracking().FirstOrDefault(x => x.id == editUser.id);
 
 
                 if (User == null)
@@ -84,14 +86,59 @@ namespace ClinicaAPI.Service.UserService
                     serviceResponse.Dados = null;
                     serviceResponse.Sucesso = false;
                 }
-
-
-                _context.Users.Update(editUser);
+                else { 
+                    if (editUser.nome != null)
+                    {
+                        User.nome = editUser.nome;
+                    }
+                    if (editUser.celular != null)
+                    {
+                        User.celular = editUser.celular;
+                    }
+                    if (editUser.ativo != null)
+                    {
+                        User.ativo = editUser.ativo;
+                    }
+                    if (editUser.cpf != null)
+                    {
+                        User.cpf = editUser.cpf;
+                    }
+                    if (editUser.idPerfil != null)
+                    {
+                        User.idPerfil = editUser.idPerfil;
+                    }
+                    DateOnly dataMinima = new DateOnly(1900, 1, 1);
+                    if (editUser.dtDeslig != dataMinima)
+                    {
+                        User.dtDeslig = editUser.dtDeslig;
+                    }
+                    if (editUser.dtNasc != dataMinima)
+                    {
+                        User.dtNasc = editUser.dtNasc;
+                    }
+                    if (editUser.email != null)
+                    {
+                        User.email = editUser.email;
+                    }
+                    if (editUser.endereco != null)
+                    {
+                        User.endereco = editUser.endereco;
+                    }
+                    if (editUser.rg != null)
+                    {
+                        User.rg = editUser.rg;
+                    }
+                    if (editUser.telFixo != null)
+                    {
+                        User.telFixo = editUser.telFixo;
+                    }
+                }
+                _context.Users.Update(User);
                 await _context.SaveChangesAsync();
                 foreach (var user in serviceResponse.Dados)
                 {
 
-                    user.SenhaHash = "secreta";
+                    user.senhaHash = "secreta";
                 }
                 serviceResponse.Dados = _context.Users.ToList();
             }
@@ -109,7 +156,7 @@ namespace ClinicaAPI.Service.UserService
             try
             {
                 List<UserModel> Users = _context.Users
-                    .Where(x => x.Nome.ToLower().Contains(Nome.ToLower()))
+                    .Where(x => x.nome.ToLower().Contains(Nome.ToLower()))
                     .ToList();
 
                 if (Users.Count == 0)
@@ -122,7 +169,7 @@ namespace ClinicaAPI.Service.UserService
                 {
                     foreach (var user in serviceResponse.Dados)
                     {
-                        user.SenhaHash = "secreta";
+                        user.senhaHash = "secreta";
                     }
                     serviceResponse.Dados = Users;
                     serviceResponse.Sucesso = true;

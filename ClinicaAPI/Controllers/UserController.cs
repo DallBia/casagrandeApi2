@@ -43,7 +43,7 @@ namespace ClinicaAPI.Controllers
         private UserModel ValidarUsuario(LoginDTO loginDetalhes)
         {
             var smartUser = _context.Users.Where(user =>
-            user.Email == loginDetalhes.Usuario && user.SenhaHash == loginDetalhes.Senha
+            user.email == loginDetalhes.Usuario && user.senhaHash == loginDetalhes.Senha
             ).FirstOrDefault();
             if (smartUser == null) return null; else return smartUser;
         }
@@ -57,12 +57,13 @@ namespace ClinicaAPI.Controllers
 
             var permClaims = new List<Claim>();
             permClaims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
-            permClaims.Add(new Claim("valid", smartUser.Ativo.ToString()));
-            permClaims.Add(new Claim("userid", smartUser.Id.ToString()));
-            permClaims.Add(new Claim("name", smartUser.Nome));
-            permClaims.Add(new Claim("email", smartUser.Email));
-            permClaims.Add(new Claim("area", smartUser.AreaSession));
-            permClaims.Add(new Claim("perfil", smartUser.IdPerfil.ToString()));
+            permClaims.Add(new Claim("valid", smartUser.ativo.ToString()));
+            permClaims.Add(new Claim("userid", smartUser.id.ToString()));
+            permClaims.Add(new Claim("name", smartUser.nome));
+            permClaims.Add(new Claim("email", smartUser.email));
+            permClaims.Add(new Claim("area", smartUser.areaSession));
+            permClaims.Add(new Claim("perfil", smartUser.idPerfil.ToString()));
+            permClaims.Add(new Claim("deslig", smartUser.dtDeslig.ToString()));
 
             var issuer = _config["Jwt:Issuer"];
             var audience = _config["Jwt:Audience"];
@@ -88,19 +89,70 @@ namespace ClinicaAPI.Controllers
             ServiceResponse<List<UserModel>> serviceResponse = new ServiceResponse<List<UserModel>>();
             try
             {
-                UserModel user = _context.Users.AsNoTracking().FirstOrDefault(x => x.Id == editUser.Id);
+                UserModel User = _context.Users.AsNoTracking().FirstOrDefault(x => x.id == editUser.id);
 
 
-                if (user == null)
+                if (User == null)
                 {
                     serviceResponse.Mensagem = "Nenhum dado encontrado.";
                     serviceResponse.Dados = null;
                     serviceResponse.Sucesso = false;
                 }
-
-
-                _context.Users.Update(editUser);
+                else
+                {
+                    if (editUser.nome != null)
+                    {
+                        User.nome = editUser.nome;
+                    }
+                    if (editUser.celular != null)
+                    {
+                        User.celular = editUser.celular;
+                    }
+                    if (editUser.ativo != null)
+                    {
+                        User.ativo = editUser.ativo;
+                    }
+                    if (editUser.cpf != null)
+                    {
+                        User.cpf = editUser.cpf;
+                    }
+                    if (editUser.idPerfil != null)
+                    {
+                        User.idPerfil = editUser.idPerfil;
+                    }
+                    DateOnly dataMinima = new DateOnly(1900, 1, 1);
+                    if (editUser.dtDeslig != dataMinima)
+                    {
+                        User.dtDeslig = editUser.dtDeslig;
+                    }
+                    if (editUser.dtNasc != null)
+                    {
+                        User.dtNasc = editUser.dtNasc;
+                    }
+                    if (editUser.email != null)
+                    {
+                        User.email = editUser.email;
+                    }
+                    if (editUser.endereco != null)
+                    {
+                        User.endereco = editUser.endereco;
+                    }
+                    if (editUser.rg != null)
+                    {
+                        User.rg = editUser.rg;
+                    }
+                    if (editUser.telFixo != null)
+                    {
+                        User.telFixo = editUser.telFixo;
+                    }
+                }
+                _context.Users.Update(User);
                 await _context.SaveChangesAsync();
+                foreach (var user in serviceResponse.Dados)
+                {
+
+                    user.senhaHash = "secreta";
+                }
                 serviceResponse.Dados = _context.Users.ToList();
             }
             catch (Exception ex)
@@ -130,7 +182,7 @@ namespace ClinicaAPI.Controllers
                     foreach (var user in serviceResponse.Dados)
                     {
                         // Modifique o valor da propriedade SenhaHash aqui, se necessário
-                        user.SenhaHash = "secreta";
+                        user.senhaHash = "secreta";
                     }
                 }
             }
