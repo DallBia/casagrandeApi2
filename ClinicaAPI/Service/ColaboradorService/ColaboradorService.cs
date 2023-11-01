@@ -150,6 +150,10 @@ namespace ClinicaAPI.Service.ColaboradorService
                     {
                         User.dtNasc = editUser.dtNasc;
                     }
+                    if (editUser.dtAdmis != dataMinima)
+                    {
+                        User.dtAdmis = editUser.dtAdmis;
+                    }
                     if (editUser.email != "")
                     {
                         User.email = editUser.email;
