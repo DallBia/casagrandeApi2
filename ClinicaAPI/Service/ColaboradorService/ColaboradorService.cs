@@ -137,6 +137,10 @@ namespace ClinicaAPI.Service.ColaboradorService
                     {
                         User.cpf = editUser.cpf;
                     }
+                    if (editUser.foto != "")
+                    {
+                        User.foto = editUser.foto;
+                    }
                     if (editUser.idPerfil != 0)
                     {
                         User.idPerfil = editUser.idPerfil;

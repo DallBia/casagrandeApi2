@@ -1,5 +1,4 @@
 using ClinicaAPI.DataContext;
-using ClinicaAPI.Models;
 using ClinicaAPI.Service.ClienteService;
 using ClinicaAPI.Service.DonoSalaService;
 using ClinicaAPI.Service.EmailService;
@@ -7,14 +6,13 @@ using ClinicaAPI.Service.FormacaoService;
 using ClinicaAPI.Service.PerfilService;
 using ClinicaAPI.Service.ProntuarioService;
 using ClinicaAPI.Service.UserService;
-using ClinicaAPI.Service.EmailService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using ClinicaAPI.Service.ColaboradorService;
+using ClinicaAPI.Service.InfoService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -67,7 +65,7 @@ builder.Services.AddScoped<IAgendaInterface, AgendaService>();
 builder.Services.AddScoped<IDonoSalaInterface, DonoSalaService>();
 builder.Services.AddScoped<IEmailInterface, EmailService>();
 builder.Services.AddScoped<IColaboradorInterface, ColaboradorService>();
-
+builder.Services.AddScoped<InfoInterface, InfoService>();
 
 
 

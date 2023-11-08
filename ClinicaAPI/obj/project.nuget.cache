@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LS1iROUjeQ4TWL3ErWIdtSrcPXEGuZRaXQA4TzAaYFyQQdgN9Mvirnw7AISVY6VJ8ClSWiAyAKEFkCb3PP2M9w==",
+  "dgSpecHash": "L51nsyV75raMXnwvocma2iE7o2pkHCoOgxyEcLjsWh6vY6IrnUDEEfFWGQBhNVqGT47lu/iyiR2Twshz64kmVg==",
   "success": true,
   "projectFilePath": "D:\\clin\\ClinicaAPI\\ClinicaAPI\\ClinicaAPI.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\google.apis\\1.62.1\\google.apis.1.62.1.nupkg.sha512",
     "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\google.apis.auth\\1.62.1\\google.apis.auth.1.62.1.nupkg.sha512",
     "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\google.apis.core\\1.62.1\\google.apis.core.1.62.1.nupkg.sha512",
+    "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\google.apis.drive.v3\\1.62.0.3155\\google.apis.drive.v3.1.62.0.3155.nupkg.sha512",
     "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\mailkit\\4.2.0\\mailkit.4.2.0.nupkg.sha512",
     "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

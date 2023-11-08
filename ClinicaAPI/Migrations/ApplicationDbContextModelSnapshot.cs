@@ -109,6 +109,10 @@ namespace ClinicaAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Foto")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Identidade")
                         .HasColumnType("text");
 
@@ -467,6 +471,10 @@ namespace ClinicaAPI.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("endereco")
+                        .HasColumnType("text");
+
+                    b.Property<string>("foto")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("idPerfil")

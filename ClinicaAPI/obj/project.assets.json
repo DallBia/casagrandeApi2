@@ -79,6 +79,23 @@
           }
         }
       },
+      "Google.Apis.Drive.v3/1.62.0.3155": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis": "1.62.0",
+          "Google.Apis.Auth": "1.62.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Drive.v3.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Drive.v3.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -3605,6 +3622,28 @@
         "lib/netstandard2.0/Google.Apis.Core.dll",
         "lib/netstandard2.0/Google.Apis.Core.pdb",
         "lib/netstandard2.0/Google.Apis.Core.xml"
+      ]
+    },
+    "Google.Apis.Drive.v3/1.62.0.3155": {
+      "sha512": "NAu0+FHIV21ng2fFquwfoVCL650RGCatKQN31j5MNCdpfpCAlU977FBKg7FiLcUCLHvNPhro9L2CQHe6xWYgEw==",
+      "type": "package",
+      "path": "google.apis.drive.v3/1.62.0.3155",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.drive.v3.1.62.0.3155.nupkg.sha512",
+        "google.apis.drive.v3.nuspec",
+        "lib/net45/Google.Apis.Drive.v3.dll",
+        "lib/net45/Google.Apis.Drive.v3.pdb",
+        "lib/net45/Google.Apis.Drive.v3.xml",
+        "lib/netstandard1.3/Google.Apis.Drive.v3.dll",
+        "lib/netstandard1.3/Google.Apis.Drive.v3.pdb",
+        "lib/netstandard1.3/Google.Apis.Drive.v3.xml",
+        "lib/netstandard2.0/Google.Apis.Drive.v3.dll",
+        "lib/netstandard2.0/Google.Apis.Drive.v3.pdb",
+        "lib/netstandard2.0/Google.Apis.Drive.v3.xml"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -9898,6 +9937,7 @@
     "net6.0": [
       "BCrypt.Net-Next >= 4.0.3",
       "Google.Apis.Auth >= 1.62.1",
+      "Google.Apis.Drive.v3 >= 1.62.0.3155",
       "MailKit >= 4.2.0",
       "Microsoft.AspNetCore.Authentication.Google >= 6.0.23",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.21",
@@ -9967,6 +10007,10 @@
           "Google.Apis.Auth": {
             "target": "Package",
             "version": "[1.62.1, )"
+          },
+          "Google.Apis.Drive.v3": {
+            "target": "Package",
+            "version": "[1.62.0.3155, )"
           },
           "MailKit": {
             "target": "Package",

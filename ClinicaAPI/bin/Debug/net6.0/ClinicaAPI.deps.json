@@ -10,6 +10,7 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
           "Google.Apis.Auth": "1.62.1",
+          "Google.Apis.Drive.v3": "1.62.0.3155",
           "MailKit": "4.2.0",
           "Microsoft.AspNetCore.Authentication.Google": "6.0.23",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.21",
@@ -81,6 +82,18 @@
           "lib/netstandard2.0/Google.Apis.Core.dll": {
             "assemblyVersion": "1.62.1.0",
             "fileVersion": "1.62.1.0"
+          }
+        }
+      },
+      "Google.Apis.Drive.v3/1.62.0.3155": {
+        "dependencies": {
+          "Google.Apis": "1.62.1",
+          "Google.Apis.Auth": "1.62.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Drive.v3.dll": {
+            "assemblyVersion": "1.62.0.3155",
+            "fileVersion": "1.62.0.3155"
           }
         }
       },
@@ -1859,6 +1872,13 @@
       "sha512": "sha512-pW+nxHMDjmr8wVy4vA1EqA3fZ+ZNAr25u1cT45aYFzHg4KmaXhIOoscB2F8ZwtnHIqTo387ZeQfGQomNLi4pFA==",
       "path": "google.apis.core/1.62.1",
       "hashPath": "google.apis.core.1.62.1.nupkg.sha512"
+    },
+    "Google.Apis.Drive.v3/1.62.0.3155": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NAu0+FHIV21ng2fFquwfoVCL650RGCatKQN31j5MNCdpfpCAlU977FBKg7FiLcUCLHvNPhro9L2CQHe6xWYgEw==",
+      "path": "google.apis.drive.v3/1.62.0.3155",
+      "hashPath": "google.apis.drive.v3.1.62.0.3155.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
