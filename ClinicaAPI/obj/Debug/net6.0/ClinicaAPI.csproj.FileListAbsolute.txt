@@ -345,3 +345,4 @@ D:\clin\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\System.Text.Encoding.CodePages.dl
 D:\clin\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 D:\clin\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
 D:\clin\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Google.Apis.Drive.v3.dll
+D:\clin\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Service\Drive.json

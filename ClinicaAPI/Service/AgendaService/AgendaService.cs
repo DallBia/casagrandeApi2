@@ -80,6 +80,7 @@ public class AgendaService : IAgendaInterface
 
              agendaExistente.idCliente = agendaAtualizada.idCliente;
              agendaExistente.idFuncAlt = agendaAtualizada.idFuncAlt;
+             agendaExistente.nome = agendaAtualizada.nome;
              agendaExistente.dtAlt= DateTime.UtcNow;
              agendaExistente.horario = agendaAtualizada.horario;
              agendaExistente.sala = agendaAtualizada.sala;

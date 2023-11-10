@@ -49,6 +49,10 @@ namespace ClinicaAPI.Migrations
                     b.Property<int>("idFuncAlt")
                         .HasColumnType("integer");
 
+                    b.Property<string>("nome")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("obs")
                         .HasColumnType("text");
 

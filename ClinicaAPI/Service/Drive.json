@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "clinica-400119",
+  "private_key_id": "5a93079f1cbe7ad4ad0cd5daeca9a0979e675c3e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCuKewvmwJs875e\nrWhz4DqPYqUuRJRKDNpQeXxE0rL6bdsR865c7Gf4dtdBaMJgTAnJdOayaeGzd0l8\nr64kEXbF+GiexnKZsd8fpmzQhcZKPrpP2CccAxFMEb4gUezDztijFUzKReymxWBu\n19DQkxHziOjhGusOuOxrbWHbCtJeu81q8Yluqx9rBqKbH5IbpVoScc6jgxp424A+\n4L9j7+oZr+HmIP4vJIUi0PVnPlOAf9YxSeaq9dU4O9ghCWAhMJ5vxNxStoE18H3o\nu3QHjhZaTO4y/sSe+P+BXlWW0jXRlnZ91kjaCaKHCpCvDPnCNuysBePsjaiga9ce\nSiyilANTAgMBAAECggEAHlbWOorFtuYVBRgvKHRorx6viKpQrL+lbjxjffe4TvDB\nJ1TsTGqwR/On1tChf7XvRIVVRMI2G5XNmuddrhHOv3jg/Lu0Lfry0+ghb4fGPZvE\nx/DvCy2rnzU+ChJLbObFDU/CE0BwE7Mxc82rphHgoCx66O/P/74ODT6+O7KcZ/0E\nmavLYgxLYPV+poRreYjY0XmDBdpO8rS8Fu8VbnqMqY1KVUbgMNy+j+Ia7M1yiB/m\nxmRdspHFVwj9d/mEAMhkZr0/JVzMn/dGsfqO7SEk1HEWMa54q1V2cBmZN2cUKsuk\nXnw2ETx4KDPQ4Em1sC5n9fILL11Hiq/6eetZYVHpnQKBgQDYwXZQN0S6cuMmAH1j\nyQSAN4UrXQ1rGulUL4QbDcpTZtWA9lrOn+3XB0Fgfb/Ib9f5NapV01FpNftsoBNZ\nLb3sVZMt6+OmVvkHgU96DvsdUWFENDYpfSPp9O4jHlMFG7s7ET/bY1xH2uvhOtx1\n9rxb++N8ceVQMon94SBpusmMZwKBgQDNsldPjc5AWIHat0oW9VPOd8sGVbvoxXMa\nBw+s993rXkLAlVWytdFCbR+OqG9SPeiAceqSLZIPFuKfH7W6TNTIs9Od0R/V9EhX\nVIvrzmTCLGKvmFwXBCP0EZEehlkaIe59iZz/HiiqF9rllRJpXBkkbgd+LIjGZU4B\nbKkQqr8+NQKBgC/T+IRYvayafy66evCSwZB9L8BSxww0Ivo1hePmVhezIDdVpNHl\nDjkdW7qr5K6Yp0JRKiXH/DXH+JOOetZ5tme4tkIyw8fHdynFycC4H4bnlxvSnYTo\nHQ2ZwxYyscT1yomNE9cYBJvCXbwUHeNVr1hoq1ihVSUuEa7YhyttUN3PAoGBAKOu\n0gmtRz4u8A5SonOIf0siSn3dBW3iiYhhrBixGXgthyLm8s4GHuIkIeOMpyEjwHtN\nqyLtfnfhdy62tg7tCro3VyMTgajo/hP4ZGudztIxLcqbjFSIZ+/Vdsx6jjbcX4Ko\nWjUtE6De4MKmkIMk1aEGqZG+8Iwnmx5JEHQB27MtAoGAZrdUhtKhSSTHV6PXQdXs\nx28ajZOZAwKQ+xEfdo7nILN1jzQDYod5+nX+sKtU7+NWl7D9eknPeZ2ARfH5WZzx\n5uy0/JiUIH0ndKZBrnmsHANTGCKp+1v1sSOzvjatuVVGhpDQixeqD6YErWfLBtgV\nzi8D44vQeuD+7maxiu5a3Iw=\n-----END PRIVATE KEY-----\n",
+  "client_email": "googledrive@clinica-400119.iam.gserviceaccount.com",
+  "client_id": "116028523515464268592",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/googledrive%40clinica-400119.iam.gserviceaccount.com"
+}

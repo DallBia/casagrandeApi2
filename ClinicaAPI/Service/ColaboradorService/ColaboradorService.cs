@@ -2,9 +2,24 @@
 using ClinicaAPI.DataContext;
 using ClinicaAPI.Models;
 using ClinicaAPI.Service.EmailService;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Drive.v3;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
 using MailKit.Net.Smtp;
 using Microsoft.EntityFrameworkCore;
 using MimeKit;
+
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Drive.v3;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using File = Google.Apis.Drive.v3.Data.File;
+using Microsoft.Exchange.WebServices.Data;
+using Google.Apis.Drive.v3.Data;
 
 namespace ClinicaAPI.Service.ColaboradorService
 {
@@ -13,14 +28,17 @@ namespace ClinicaAPI.Service.ColaboradorService
     {
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
+        //private readonly GoogleDriveService _googleDriveService;
         public ColaboradorService(ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;
+            string credentialsFilePath = "../ClinicaAPI/Service/Drive.json";
+            string applicationName = "GoogleDrive";
+
+            //_googleDriveService = new GoogleDriveService(credentialsFilePath, applicationName);
+
         }
-        
-
-
 
 
 
@@ -140,6 +158,8 @@ namespace ClinicaAPI.Service.ColaboradorService
                     if (editUser.foto != "")
                     {
                         User.foto = editUser.foto;
+                        //User.foto = await _googleDriveService.UploadImageToGoogleDrive(editUser.foto, editUser.id);
+
                     }
                     if (editUser.idPerfil != 0)
                     {
@@ -191,53 +211,7 @@ namespace ClinicaAPI.Service.ColaboradorService
             }
             return serviceResponse;
         }
-
-        
-
-
-        /*
-         public async Task<ServiceResponse<UserModel>> AltSenha(int id, string novaSenha)
-        {
-            ServiceResponse<UserModel> serviceResponse = new ServiceResponse<UserModel>();
-            try
-            {
-                UserModel User = _context.Users.AsNoTracking().FirstOrDefault(x => x.id == id);
-
-
-                if (User == null)
-                {
-                    serviceResponse.Mensagem = "Nenhum dado encontrado.";
-                    serviceResponse.Dados = null;
-                    serviceResponse.Sucesso = false;
-                }
-                else
-                {
-                    if (novaSenha != "")
-                    {
-                        User.senhaHash = novaSenha;
-                    }
-                    
-                    if (User.dtDeslig.ToString() == "1900-01-01")
-                    {
-                        User.dtDeslig = null;
-                        User.ativo = true;
-                    }
-                     
-                }
-                _context.Users.Update(User);
-                await _context.SaveChangesAsync();
-                User.senhaHash = "secreta";
-                serviceResponse.Dados = User;
-                
-            }
-            catch (Exception ex)
-            {
-                serviceResponse.Mensagem = ex.Message;
-                serviceResponse.Sucesso = false;
-            }
-            return serviceResponse;
-        }
-        */
+               
     }
     
 }

@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="service\Drive.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Google.Apis.Auth" Version="1.62.1" />
     <PackageReference Include="Google.Apis.Drive.v3" Version="1.62.0.3155" />

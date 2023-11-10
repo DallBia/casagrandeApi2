@@ -8,6 +8,7 @@ namespace ClinicaAPI.Models
         [Key]
         public int id { get; set; }
         public int? idCliente { get; set; }
+        public string nome { get; set; }
         public int idFuncAlt { get; set; }
         public DateTime dtAlt { get; set; } = DateTime.UtcNow;
         public string horario { get; set; }
