@@ -42,6 +42,8 @@ namespace ClinicaAPI.Models
         public StatusEnum status { get; set; } = 0;
         public string? historico { get; set; }
         public string? obs { get; set; }
+        public double? valor { get; set; } = 0;
+
 
     }
 }

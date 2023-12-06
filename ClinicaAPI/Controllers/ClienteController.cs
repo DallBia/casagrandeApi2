@@ -36,11 +36,17 @@ namespace ClinicaAPI.Controllers
             ServiceResponse<List<ClienteModel>> serviceResponse = await _clienteInterface.GetClientebyArea(Area);
             return Ok(serviceResponse);
         }
+        [HttpGet("Agenda")]
+        public async Task<ActionResult<ServiceResponse<List<TipoModel>>>> GetClientebyAgenda()
+        {
+            ServiceResponse<List<TipoModel>> serviceResponse = await _clienteInterface.GetClientebyAgenda();
+            return Ok(serviceResponse);
+        }
 
         [HttpGet("Nome")]
-        public async Task<ActionResult<ServiceResponse<List<ClienteModel>>>> GetClientebyNome(string Nome)
+        public async Task<ActionResult<ServiceResponse<List<ClienteModel>>>> GetClientebyNome(string atr, string par, string ret)
         {
-            ServiceResponse<List<ClienteModel>> serviceResponse = await _clienteInterface.GetClientebyNome(Nome);
+            ServiceResponse<List<ClienteModel>> serviceResponse = await _clienteInterface.GetClientebyNome(atr, par, ret);
             return Ok(serviceResponse);
         }
 

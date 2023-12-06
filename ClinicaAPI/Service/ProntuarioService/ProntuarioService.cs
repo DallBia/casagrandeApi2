@@ -114,7 +114,7 @@ namespace ClinicaAPI.Service.ProntuarioService
             ServiceResponse<List<ProntuarioModel>> serviceResponse = new ServiceResponse<List<ProntuarioModel>>();
             try
             {
-                ProntuarioModel Prontuario = _context.Prontuarios.AsNoTracking().FirstOrDefault(x => x.IdCliente == editProntuario.Id);
+                ProntuarioModel Prontuario = _context.Prontuarios.AsNoTracking().FirstOrDefault(x => x.Id == editProntuario.Id);
 
 
                 if (Prontuario == null)

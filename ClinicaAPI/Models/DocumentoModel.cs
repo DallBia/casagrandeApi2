@@ -11,7 +11,7 @@ namespace ClinicaAPI.Models
         public string tipo { get; set; }
         public string? descricao { get; set; }
         public DateTime dtInclusao { get; set; }
-
+        public string arquivo { get; set; }
 
     }
 }

@@ -71,6 +71,9 @@ namespace ClinicaAPI.Migrations
                     b.Property<int>("unidade")
                         .HasColumnType("integer");
 
+                    b.Property<double?>("valor")
+                        .HasColumnType("double precision");
+
                     b.HasKey("id");
 
                     b.ToTable("Agendas");
@@ -206,6 +209,10 @@ namespace ClinicaAPI.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<string>("arquivo")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("cliOuProf")
                         .IsRequired()

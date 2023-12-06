@@ -12,6 +12,9 @@ namespace ClinicaAPI.Service.ClienteService
         Task<ServiceResponse<List<ClienteModel>>> UpdateCliente(ClienteModel editCliente);
         Task<ServiceResponse<List<ClienteModel>>> DeleteCliente(int Id);
         Task<ServiceResponse<List<ClienteModel>>> ActivateCliente(int Id);
-        Task<ServiceResponse<List<ClienteModel>>> GetClientebyNome(string Nome);
+        Task<ServiceResponse<List<ClienteModel>>> GetClientebyNome(string atr, string par, string ret);
+
+        Task<ServiceResponse<List<TipoModel>>> GetClientebyAgenda();
     }
+
 }

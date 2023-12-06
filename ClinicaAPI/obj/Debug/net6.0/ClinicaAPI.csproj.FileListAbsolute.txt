@@ -346,3 +346,4 @@ D:\clin\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Se
 D:\clin\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
 D:\clin\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Google.Apis.Drive.v3.dll
 D:\clin\ClinicaAPI\ClinicaAPI\bin\Debug\net6.0\Service\Drive.json
+D:\clin\ClinicaAPI\ClinicaAPI\obj\Debug\net6.0\ClinicaAPI.sourcelink.json

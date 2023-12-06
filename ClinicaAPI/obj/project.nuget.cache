@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "L51nsyV75raMXnwvocma2iE7o2pkHCoOgxyEcLjsWh6vY6IrnUDEEfFWGQBhNVqGT47lu/iyiR2Twshz64kmVg==",
+  "dgSpecHash": "5u5SlDHN1TK516ufDi+Yixgupf4HZt6Ozk5uEKL7/YA/bC8U+eBfpzckNFodf3DGSpCP0PTyFZExOsDcmOt43g==",
   "success": true,
   "projectFilePath": "D:\\clin\\ClinicaAPI\\ClinicaAPI\\ClinicaAPI.csproj",
   "expectedPackageFiles": [
@@ -203,7 +203,11 @@
     "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
-    "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\Tiago Bianchini\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.25\\microsoft.netcore.app.host.win-x64.6.0.25.nupkg.sha512"
   ],
   "logs": [
     {
