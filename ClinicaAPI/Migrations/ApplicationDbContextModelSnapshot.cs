@@ -509,6 +509,32 @@ namespace ClinicaAPI.Migrations
 
                     b.ToTable("Users");
                 });
+
+            modelBuilder.Entity("ClinicaAPI.Models.ValorModel", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<DateOnly>("data")
+                        .HasColumnType("date");
+
+                    b.Property<string>("nome")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("selecionada")
+                        .HasColumnType("boolean");
+
+                    b.Property<double>("valor")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Valores");
+                });
 #pragma warning restore 612, 618
         }
     }

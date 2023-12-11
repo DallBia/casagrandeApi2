@@ -211,7 +211,64 @@ namespace ClinicaAPI.Service.ColaboradorService
             }
             return serviceResponse;
         }
-               
+
+        public async Task<ServiceResponse<List<TipoModel>>> GetColabbyAgenda()
+        {
+            ServiceResponse<List<TipoModel>> serviceResponse = new ServiceResponse<List<TipoModel>>();
+            var DadosList = new List<TipoModel>();
+            try
+            {
+                var Lista = _context.Users
+                    .OrderBy(x => x.nome)
+                    .ToList();
+                foreach (var T in Lista)
+                {
+                    TipoModel novoItem = new TipoModel
+                    {
+                        id = T.id,
+                        nome = T.nome
+                    };
+
+                    DadosList.Add(novoItem);
+                }
+                serviceResponse.Dados = DadosList.ToList();
+                serviceResponse.Mensagem = "Carregado com sucesso.";
+                serviceResponse.Sucesso = true;
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Sucesso = false;
+            }
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<UserModel>> GetColaboradorbyId(int Id)
+        {
+            ServiceResponse<UserModel> serviceResponse = new ServiceResponse<UserModel>();
+
+            try
+            {
+                UserModel user = _context.Users.FirstOrDefault(x => x.id == Id);
+
+
+                if (user == null)
+                {
+                    serviceResponse.Mensagem = "Nenhum dado encontrado.";
+                    serviceResponse.Dados = null;
+                    serviceResponse.Sucesso = false;
+                }
+
+                serviceResponse.Dados = user;
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Sucesso = false;
+            }
+            return serviceResponse;
+        }
     }
     
 }

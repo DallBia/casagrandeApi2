@@ -19,5 +19,6 @@ namespace ClinicaAPI.DataContext
         public DbSet<ClienteModel> Clientes { get; set; }
         public DbSet<ProntuarioModel> Prontuarios { get; set; }
         public DbSet<InfoModel> Infos { get; set; }
+        public DbSet<ValorModel> Valores { get; set; }
     }
 }

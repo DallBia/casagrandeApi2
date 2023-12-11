@@ -86,5 +86,20 @@ namespace ClinicaAPI.Controllers
         {
             return Ok(await _colaboradorInterface.CreateColaborador(novoColaborador));
         }
+
+        [HttpGet("Agenda")]
+        public async Task<ActionResult<ServiceResponse<List<TipoModel>>>> GetColaboradorbyAgenda()
+        {
+            ServiceResponse<List<TipoModel>> serviceResponse = await _colaboradorInterface.GetColabbyAgenda();
+            return Ok(serviceResponse);
+        }
+
+        [Authorize]
+        [HttpGet("id/{id}")]
+        public async Task<ActionResult<ServiceResponse<UserModel>>> GetColaboradorbyId(int id)
+        {
+            ServiceResponse<UserModel> serviceResponse = await _colaboradorInterface.GetColaboradorbyId(id);
+            return Ok(serviceResponse);
+        }
     }
 }

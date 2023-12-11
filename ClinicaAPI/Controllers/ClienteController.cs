@@ -17,7 +17,7 @@ namespace ClinicaAPI.Controllers
 
 
         [Authorize]
-        [HttpGet("id")]
+        [HttpGet("id/{id}")]
         public async Task<ActionResult<ServiceResponse<ClienteModel>>> GetClientebyId(int Id)
         {
             ServiceResponse<ClienteModel> serviceResponse = await _clienteInterface.GetClientebyId(Id);
