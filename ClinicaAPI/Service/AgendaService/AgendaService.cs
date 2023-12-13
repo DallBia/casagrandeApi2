@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 public class AgendaService : IAgendaInterface
@@ -43,15 +44,19 @@ public class AgendaService : IAgendaInterface
         return serviceResponse;
     }
 
-    public async Task<ServiceResponse<AgendaModel>> CreateAgenda(AgendaModel novaAgenda)
+    public async Task<ServiceResponse<List<AgendaModel>>> CreateAgenda(AgendaModel novaAgenda)
     {
-        ServiceResponse<AgendaModel> serviceResponse = new ServiceResponse<AgendaModel>();
+        ServiceResponse<List<AgendaModel>> serviceResponse = new ServiceResponse<List<AgendaModel>>();
 
         try
         {
             _context.Agendas.Add(novaAgenda);
             await _context.SaveChangesAsync();
-            serviceResponse.Dados = novaAgenda;
+            var dia = novaAgenda.dia;
+            List<AgendaModel> agendas = await _context.Agendas
+                .Where(a => a.dia == dia)
+                .ToListAsync();
+            serviceResponse.Dados = agendas;
         }
         catch (Exception ex)
         {
@@ -90,9 +95,10 @@ public class AgendaService : IAgendaInterface
              agendaExistente.subtitulo = agendaAtualizada.subtitulo;
              agendaExistente.status = agendaAtualizada.status;
              agendaExistente.historico = agendaAtualizada.historico;
-             agendaExistente.obs = agendaAtualizada.obs; 
+             agendaExistente.obs = agendaAtualizada.obs;
+             agendaExistente.valor = agendaAtualizada.valor;
 
-     _context.Agendas.Update(agendaExistente);
+            _context.Agendas.Update(agendaExistente);
              await _context.SaveChangesAsync();
              serviceResponse.Dados = agendaExistente;
          }

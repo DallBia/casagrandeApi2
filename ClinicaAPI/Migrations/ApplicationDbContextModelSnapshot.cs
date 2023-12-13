@@ -309,6 +309,49 @@ namespace ClinicaAPI.Migrations
                     b.ToTable("Escolas");
                 });
 
+            modelBuilder.Entity("ClinicaAPI.Models.FinanceiroModel", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<DateOnly>("data")
+                        .HasColumnType("date");
+
+                    b.Property<string>("descricao")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("idCliente")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("idFuncAlt")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("nome")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("recibo")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("refAgenda")
+                        .HasColumnType("integer");
+
+                    b.Property<bool?>("selecionada")
+                        .HasColumnType("boolean");
+
+                    b.Property<double>("valor")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Financeiros");
+                });
+
             modelBuilder.Entity("ClinicaAPI.Models.FormacaoModel", b =>
                 {
                     b.Property<int>("Id")

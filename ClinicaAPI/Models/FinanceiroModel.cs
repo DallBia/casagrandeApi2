@@ -1,13 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClinicaAPI.Models
 {
     public class FinanceiroModel
     {
         public  int id { get; set; }
-        public  string espec { get; set; }
+        public int idCliente { get; set; }
+        public int idFuncAlt { get; set; }
+        public DateOnly data { get; set; }
+        public string nome { get; set; }
+        public string descricao { get; set; }
         public double valor { get; set; }
-        public DateTime dtAlt { get; set; }
+        public int refAgenda { get; set; }
+        public Boolean? selecionada { get; set; }
+        public string recibo { get; set; }
 
     }
 }

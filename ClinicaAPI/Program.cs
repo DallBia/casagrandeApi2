@@ -14,6 +14,7 @@ using System.Text;
 using ClinicaAPI.Service.ColaboradorService;
 using ClinicaAPI.Service.InfoService;
 using ClinicaAPI.Service.ValorService;
+using ClinicaAPI.Service.FinanceiroService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -68,6 +69,7 @@ builder.Services.AddScoped<IEmailInterface, EmailService>();
 builder.Services.AddScoped<IColaboradorInterface, ColaboradorService>();
 builder.Services.AddScoped<InfoInterface, InfoService>();
 builder.Services.AddScoped<IValorInterface, ValorService>();
+builder.Services.AddScoped<IFinanceiroInterface, FinanceiroService>();
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
