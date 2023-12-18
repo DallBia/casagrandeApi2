@@ -36,7 +36,7 @@ public class AgendaController : ControllerBase
         ServiceResponse<List<AgendaModel>> serviceResponse = await _agendaInterface.CreateAgenda(novaAgenda);
         return Ok(serviceResponse);
     }
-    [HttpPut("ValidAgenda")]
+    [HttpPost("ValidAgenda")]
     public async Task<ActionResult<ServiceResponse<AgendaModel>>> ValidAgenda([FromBody] AgendaModel testAgenda)
     {
         ServiceResponse<AgendaModel> serviceResponse = await _agendaInterface.ValidAgenda(testAgenda);

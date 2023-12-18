@@ -122,23 +122,27 @@ namespace ClinicaAPI.Service.FormacaoService
         }
 
 
-        public async Task<ServiceResponse<FormacaoModel>> GetFormacaobyId(int Id)
+        public async Task<ServiceResponse<List<FormacaoModel>>> GetFormacaobyId(int Id)
         {
-            ServiceResponse<FormacaoModel> serviceResponse = new ServiceResponse<FormacaoModel>();
+            ServiceResponse<List<FormacaoModel>> serviceResponse = new ServiceResponse<List<FormacaoModel>>();
 
             try
             {
-                FormacaoModel Formacao = _context.Formacaos.FirstOrDefault(x => x.IdFuncionario == Id);
+                List<FormacaoModel> Formacaos = _context.Formacaos
+                    .Where(x => x.IdFuncionario == Id)
+                    .ToList();
 
-
-                if (Formacao == null)
+                if (Formacaos.Count == 0)
                 {
                     serviceResponse.Mensagem = "Nenhum dado encontrado.";
                     serviceResponse.Dados = null;
                     serviceResponse.Sucesso = false;
                 }
-
-                serviceResponse.Dados = Formacao;
+                else
+                {
+                    serviceResponse.Dados = Formacaos;
+                    serviceResponse.Sucesso = true;
+                }
             }
             catch (Exception ex)
             {
@@ -147,6 +151,7 @@ namespace ClinicaAPI.Service.FormacaoService
             }
             return serviceResponse;
         }
+
 
     }
 }

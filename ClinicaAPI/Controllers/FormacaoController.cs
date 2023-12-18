@@ -17,10 +17,10 @@ namespace ClinicaAPI.Controllers
 
 
         [Authorize]
-        [HttpGet("id")]
-        public async Task<ActionResult<ServiceResponse<FormacaoModel>>> GetFormacaobyId(int Id)
+        [HttpGet("id/{id}")]
+        public async Task<ActionResult<ServiceResponse<List<FormacaoModel>>>> GetFormacaobyId(int Id)
         {
-            ServiceResponse<FormacaoModel> serviceResponse = await _FormacaoInterface.GetFormacaobyId(Id);
+            ServiceResponse<List<FormacaoModel>> serviceResponse = await _FormacaoInterface.GetFormacaobyId(Id);
             return Ok(serviceResponse);
         }
 

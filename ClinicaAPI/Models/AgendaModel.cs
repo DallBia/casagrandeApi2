@@ -14,15 +14,16 @@ namespace ClinicaAPI.Models
         public string horario { get; set; }
         public int sala { get; set; }
         public int unidade { get; set; }
-        public DateOnly dia { get; set; }
+        public string configRept { get; set; }
+        public DateOnly diaI { get; set; }
+        public DateOnly diaF { get; set; }
         public string diaDaSemana
         {
             get
             {
-                return DiaDaSemanaParaPortugues(dia.DayOfWeek);
+                return DiaDaSemanaParaPortugues(diaI.DayOfWeek);
             }
         }
-
         private string DiaDaSemanaParaPortugues(DayOfWeek dia1)
         {
             switch (dia1)
@@ -43,7 +44,6 @@ namespace ClinicaAPI.Models
         public string? historico { get; set; }
         public string? obs { get; set; }
         public double? valor { get; set; } = 0;
-
 
     }
 }

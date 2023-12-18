@@ -30,7 +30,14 @@ namespace ClinicaAPI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<DateOnly>("dia")
+                    b.Property<string>("configRept")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateOnly>("diaF")
+                        .HasColumnType("date");
+
+                    b.Property<DateOnly>("diaI")
                         .HasColumnType("date");
 
                     b.Property<DateTime>("dtAlt")
@@ -245,6 +252,10 @@ namespace ClinicaAPI.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
                     b.Property<string>("area")
+                        .HasColumnType("text");
+
+                    b.Property<string>("configRept")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateOnly?>("dataFim")

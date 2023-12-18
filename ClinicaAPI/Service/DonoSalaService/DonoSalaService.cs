@@ -45,15 +45,22 @@ namespace ClinicaAPI.Service.DonoSalaService
         public async Task<ServiceResponse<List<DonoSalaModel>>> GetDonoSala()
         {
             ServiceResponse<List<DonoSalaModel>> serviceResponse = new ServiceResponse<List<DonoSalaModel>>();
-
+            
+            DateOnly dataAtual = DateOnly.FromDateTime(DateTime.Now);
             try
             {
-                serviceResponse.Dados = _context.DonoSalas.ToList();
-                if (serviceResponse.Dados.Count == 0)
+                List<DonoSalaModel> Dono = _context.DonoSalas
+                    .Where(x => x.dataFim >= dataAtual)
+                    .ToList();
+                serviceResponse.Mensagem = "Dados nulos";
+                if (serviceResponse.Dados != null)
                 {
-                    serviceResponse.Mensagem = "Nenhum dado encontrado.";
-
+                    if (serviceResponse.Dados.Count == 0 || serviceResponse.Dados == null)
+                    {
+                        serviceResponse.Mensagem = "Nenhum dado encontrado.";
+                    }
                 }
+                
             }
             catch (Exception ex)
             {

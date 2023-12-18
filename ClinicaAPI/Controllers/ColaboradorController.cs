@@ -101,5 +101,13 @@ namespace ClinicaAPI.Controllers
             ServiceResponse<UserModel> serviceResponse = await _colaboradorInterface.GetColaboradorbyId(id);
             return Ok(serviceResponse);
         }
+        [Authorize]
+        [HttpGet("novoId/{id}")]
+        public async Task<ActionResult<ServiceResponse<List<UserModel>>>> GetColab(string id)
+        {
+
+            ServiceResponse<List<UserModel>> serviceResponse = await _colaboradorInterface.GetColab(id);
+            return Ok(serviceResponse);
+        }
     }
 }

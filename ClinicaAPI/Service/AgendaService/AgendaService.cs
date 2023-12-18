@@ -1,6 +1,7 @@
 ﻿using ClinicaAPI.DataContext;
 using ClinicaAPI.Enums;
 using ClinicaAPI.Models;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ public class AgendaService : IAgendaInterface
         {
             // Consulta no banco de dados para encontrar agendas na data especificada (dia).
             List<AgendaModel> agendas = await _context.Agendas
-                .Where(a => a.dia == dia)
+                .Where(a => a.diaI <= dia && a.diaF >= dia)
                 .ToListAsync();
 
             serviceResponse.Dados = agendas;
@@ -52,9 +53,10 @@ public class AgendaService : IAgendaInterface
         {
             _context.Agendas.Add(novaAgenda);
             await _context.SaveChangesAsync();
-            var dia = novaAgenda.dia;
+            var diaI = novaAgenda.diaI;
+            var diaF = novaAgenda.diaF;
             List<AgendaModel> agendas = await _context.Agendas
-                .Where(a => a.dia == dia)
+                .Where(a => a.diaI <= diaI && a.diaF >= diaF)
                 .ToListAsync();
             serviceResponse.Dados = agendas;
         }
@@ -90,7 +92,8 @@ public class AgendaService : IAgendaInterface
              agendaExistente.horario = agendaAtualizada.horario;
              agendaExistente.sala = agendaAtualizada.sala;
              agendaExistente.unidade = agendaAtualizada.unidade;
-             agendaExistente.dia = agendaAtualizada.dia;
+             agendaExistente.diaI = agendaAtualizada.diaI;
+             agendaExistente.diaF = agendaAtualizada.diaF;
              agendaExistente.repeticao = agendaAtualizada.repeticao;
              agendaExistente.subtitulo = agendaAtualizada.subtitulo;
              agendaExistente.status = agendaAtualizada.status;
@@ -114,64 +117,70 @@ public class AgendaService : IAgendaInterface
     public async Task<ServiceResponse<AgendaModel>> ValidAgenda(AgendaModel testAgenda)
     {
         ServiceResponse<AgendaModel> serviceResponse = new ServiceResponse<AgendaModel>();
-        try { 
-            AgendaModel agendaExistente = _context.Agendas
-                .FirstOrDefault(x => x.dia == testAgenda.dia
-                                 && x.sala == testAgenda.sala
-                                 && x.unidade == testAgenda.unidade);
-
-            if (agendaExistente != null)
-            {
-
-                agendaExistente.id = testAgenda.id;
-                agendaExistente.idCliente = testAgenda.idCliente;
-                agendaExistente.idFuncAlt = testAgenda.idFuncAlt;
-                agendaExistente.dtAlt = testAgenda.dtAlt;
-                agendaExistente.horario = testAgenda.horario;
-                agendaExistente.sala = testAgenda.sala;
-                agendaExistente.unidade = testAgenda.unidade;
-                agendaExistente.repeticao = testAgenda.repeticao;
-                agendaExistente.subtitulo = testAgenda.subtitulo;
-                agendaExistente.status = testAgenda.status;
-                agendaExistente.historico = testAgenda.historico;
-                agendaExistente.obs = testAgenda.obs;
-
-
-                _context.Agendas.Update(agendaExistente);
-                serviceResponse.Mensagem = "Atualizado.";
-            }
-            else
-            {
-                // Se não existir, criar um novo registro
-                AgendaModel novoRegistro = new AgendaModel
-                {
-                id = testAgenda.id,
-                idCliente = testAgenda.idCliente,
-                idFuncAlt = testAgenda.idFuncAlt,
-                dtAlt = testAgenda.dtAlt,
-                horario = testAgenda.horario,
-                sala = testAgenda.sala,
-                unidade = testAgenda.unidade,
-                repeticao = testAgenda.repeticao,
-                subtitulo = testAgenda.subtitulo,
-                status = testAgenda.status,
-                historico = testAgenda.historico,
-                obs = testAgenda.obs
-            };
-
-                _context.Agendas.Add(novoRegistro);
-                serviceResponse.Mensagem = "Criado.";
-            }
-
-            await _context.SaveChangesAsync();            
-            serviceResponse.Sucesso = true;
-        }
-        catch (Exception ex)
+        if (testAgenda.nome != "")
         {
-            // Tratar exceções, se necessário
-            serviceResponse.Mensagem = "Erro ao realizar operação: " + ex.Message;
-            serviceResponse.Sucesso = false;
+            try
+            {
+                AgendaModel agendaExistente = _context.Agendas
+                .FirstOrDefault(x => x.diaI <= testAgenda.diaI
+                                    && x.diaF >= testAgenda.diaF
+                                    && x.nome == testAgenda.nome
+                                    && x.horario == testAgenda.horario);
+
+                if (agendaExistente != null)
+                {
+                    serviceResponse.Dados = agendaExistente;
+                    serviceResponse.Mensagem = "Encontrado.";
+                    serviceResponse.Sucesso = true;
+                }
+                else
+                {
+                    serviceResponse.Dados = agendaExistente;
+                    serviceResponse.Mensagem = "Não Encontrado.";
+                    serviceResponse.Sucesso = true;
+                };
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Dados = null;
+                serviceResponse.Mensagem = "Erro ao realizar operação: " + ex.Message;
+                serviceResponse.Sucesso = false;
+            }
         }
+        else
+        {
+            try
+            {
+                AgendaModel agendaExistente = _context.Agendas
+                .FirstOrDefault(x => x.diaI <= testAgenda.diaI
+                                    && x.diaF >= testAgenda.diaF
+                                    && x.sala == testAgenda.sala
+                                    && x.unidade == testAgenda.unidade
+                                    && x.horario == testAgenda.horario);
+
+                if (agendaExistente != null)
+                {
+                    serviceResponse.Dados = agendaExistente;
+                    serviceResponse.Mensagem = "Indisponível.";
+                    serviceResponse.Sucesso = true;
+                }
+                else
+                {
+                    serviceResponse.Dados = agendaExistente;
+                    serviceResponse.Mensagem = "Disponível.";
+                    serviceResponse.Sucesso = true;
+                };
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Dados = null;
+                serviceResponse.Mensagem = "Erro ao realizar operação: " + ex.Message;
+                serviceResponse.Sucesso = false;
+            }
+        }
+        
 
         return serviceResponse;
     }

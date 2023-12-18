@@ -20,6 +20,9 @@ using System.Threading.Tasks;
 using File = Google.Apis.Drive.v3.Data.File;
 using Microsoft.Exchange.WebServices.Data;
 using Google.Apis.Drive.v3.Data;
+using System.Security.Cryptography;
+using Org.BouncyCastle.Utilities.Collections;
+using System.Collections.Generic;
 
 namespace ClinicaAPI.Service.ColaboradorService
 {
@@ -269,6 +272,236 @@ namespace ClinicaAPI.Service.ColaboradorService
             }
             return serviceResponse;
         }
+
+        public async Task<ServiceResponse<List<UserModel>>> GetColab(string id)
+        {
+            ServiceResponse<List<UserModel>> serviceResponse = new ServiceResponse<List<UserModel>>();
+            try
+            {
+                // Dividir a string usando '%' como delimitador
+                string[] partes = id.Split('֍');
+
+                // Verificar se há pelo menos três partes
+                if (partes.Length >= 3)
+                {
+                    // Extrair valores
+                    string tipo = partes[0];
+                    string valor = partes[1];
+
+
+                    // Converter a terceira parte para inteiro (índice)
+                    if (int.TryParse(partes[2], out int indice))
+                    {
+                       
+                        var ListaTmp = new List<UserModel>();
+                        var Lista = new List<UserModel>();
+                        List<UserModel> DadosList = new List<UserModel>();
+
+                            switch (tipo)
+                        {
+                            case "nome":
+                                if (partes[3] == "P")
+                                {
+                                    ListaTmp = _context.Users
+                                    .OrderBy(x => x.id)
+                                    .Where(x => x.nome.ToLower().Contains(valor.ToLower()))
+                                    .ToList();
+
+                                    Lista = _context.Users
+                                    .OrderBy(x => x.id)
+                                    .Where(x => x.nome.ToLower().Contains(valor.ToLower()) && x.id >= indice)
+                                    .Take(10)
+                                    .ToList();
+                                }
+                                else
+                                {
+                                    ListaTmp = _context.Users
+                                    .OrderByDescending(x => x.id)
+                                    .Where(x => x.nome.ToLower().Contains(valor.ToLower()))
+                                    .OrderBy(x => x.id)
+                                    .ToList();
+
+                                    Lista = _context.Users
+                                    .OrderByDescending(x => x.id)
+                                    .Where(x => x.nome.ToLower().Contains(valor.ToLower()) && x.id <= indice)
+                                    .Take(10)
+                                    .OrderBy(x => x.id)
+                                    .ToList();
+                                }
+
+                                break;
+
+                            case "area":
+                                if (partes[3] == "P")
+                                {
+                                    ListaTmp = _context.Users
+                                    .OrderBy(x => x.id)
+                                    .Where(x => x.areaSession.ToLower().Contains(valor.ToLower()))
+                                    .ToList();
+
+                                    Lista = _context.Users
+                                    .OrderBy(x => x.id)
+                                    .Where(x => x.areaSession.ToLower().Contains(valor.ToLower()) && x.id >= indice)
+                                    .Take(10)
+                                    .ToList();
+                                }
+                                else
+                                {
+                                    ListaTmp = _context.Users
+                                    .OrderByDescending(x => x.id)
+                                    .Where(x => x.areaSession.ToLower().Contains(valor.ToLower()))
+                                    .OrderBy(x => x.id)
+                                    .ToList();
+
+                                    Lista = _context.Users
+                                    .OrderByDescending(x => x.id)
+                                    .Where(x => x.areaSession.ToLower().Contains(valor.ToLower()) && x.id <= indice)
+                                    .Take(10)
+                                    .OrderBy(x => x.id)
+                                    .ToList();
+                                }
+
+                                break;
+                            case "perfil":
+                                var perf = int.Parse(valor);
+                                if (partes[3] == "P")
+                                {
+                                    ListaTmp = _context.Users
+                                    .OrderBy(x => x.id)
+                                    .Where(x => x.idPerfil == perf)
+                                    .ToList();
+
+                                    Lista = _context.Users
+                                    .OrderBy(x => x.id)
+                                    .Where(x => x.idPerfil == perf && x.id >= indice)
+                                    .Take(10)
+                                    .ToList();
+                                }
+                                else
+                                {
+                                    ListaTmp = _context.Users
+                                    .OrderByDescending(x => x.id)
+                                    .Where(x => x.idPerfil == perf)
+                                    .OrderBy(x => x.id)
+                                    .ToList();
+
+                                    Lista = _context.Users
+                                    .OrderByDescending(x => x.id)
+                                    .Where(x => x.idPerfil == perf && x.id <= indice)
+                                    .Take(10)
+                                    .OrderBy(x => x.id)
+                                    .ToList();
+                                }
+
+                                break;
+                            default:
+                                if (partes[3] == "P")
+                                {
+                                    ListaTmp = _context.Users
+                                    .OrderBy(x => x.id)
+                                    .ToList();
+
+                                    Lista = _context.Users
+                                    .OrderBy(x => x.id)
+                                    .Where(x => x.id >= indice)
+                                    .Take(10)
+                                    .ToList();
+                                }
+                                else
+                                {
+                                    ListaTmp = _context.Users
+                                    .OrderByDescending(x => x.id)
+                                    .OrderBy(x => x.id)
+                                    .ToList();
+
+                                    Lista = _context.Users
+                                    .OrderByDescending(x => x.id)
+                                    .Where(x => x.id <= indice)
+                                    .Take(10)
+                                    .OrderBy(x => x.id)
+                                    .ToList();
+                                }
+
+                                break;
+                        }
+                        var firstX = ListaTmp.FirstOrDefault()?.id;
+                        var lastX = ListaTmp.LastOrDefault()?.id;
+                        var firstY = Lista.FirstOrDefault()?.id;
+                        var lastY = Lista.LastOrDefault()?.id;
+
+                        var seletor = "X";
+                        if (firstX == firstY && lastX == lastY)
+                        {
+                            seletor = "A";
+                        }
+                        else
+                        {
+                            if (firstX == firstY)
+                            {
+                                seletor = "I";
+                            }
+                            if (lastX == lastY)
+                            {
+                                seletor = "F";
+                            }
+                        }
+                        foreach (var T in Lista)
+                        {
+                            UserModel novoItem = new UserModel
+                            {
+                                id = T.id,
+                                nome = T.nome,
+                                foto = T.foto,
+                                dtNasc = T.dtNasc,
+                                rg = T.rg,
+                                cpf = T.cpf,
+                                endereco = T.endereco,
+                                telFixo = T.telFixo,
+                                celular = T.celular,
+                                email = T.email,
+                                dtAdmis = T.dtAdmis,
+                                dtDeslig = T.dtDeslig,
+                                idPerfil = T.idPerfil,
+                                ativo = T.ativo,
+                                areaSession = T.areaSession,
+                                senhaHash = "secreta"
+                            };
+
+                            DadosList.Add(novoItem);
+                        }
+                        serviceResponse.Dados = DadosList.ToList();
+                        serviceResponse.Mensagem = firstY.ToString() + "֍" + lastY.ToString() + "֍" + seletor;
+                        serviceResponse.Sucesso = true;
+                        return serviceResponse;
+                    }
+                    else
+                    {
+                        serviceResponse.Dados = null;
+                        serviceResponse.Mensagem = "Problemas foram encontrados no loop mais interno";
+                        serviceResponse.Sucesso = false;
+                        return serviceResponse;
+                    }
+                }
+                else
+                {
+                    serviceResponse.Dados = null;
+                    serviceResponse.Mensagem = "Problemas foram encontrados no loop central";
+                    serviceResponse.Sucesso = false;
+                    return serviceResponse;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Tratar exceções, se necessário
+                serviceResponse.Dados = null;
+                serviceResponse.Mensagem = "Problemas foram encontrados no loop externo";
+                serviceResponse.Sucesso = false;
+                return serviceResponse;
+            }
+
+
+        }
+
     }
     
 }
