@@ -454,6 +454,7 @@ namespace ClinicaAPI.Service.ClienteService
             return serviceResponse;
         }
 
+        /*
         public async Task<ServiceResponse<List<ClienteModel>>> GetCli(string id)
         {
             ServiceResponse<List<ClienteModel>> serviceResponse = new ServiceResponse<List<ClienteModel>>();
@@ -473,6 +474,7 @@ namespace ClinicaAPI.Service.ClienteService
                     // Converter a terceira parte para inteiro (índice)
                     if (int.TryParse(partes[2], out int indice))
                     {
+                        //Aplicar o filtro primeiro:
 
                         var ListaTmp = new List<ClienteModel>();
                         var Lista = new List<ClienteModel>();
@@ -605,6 +607,170 @@ namespace ClinicaAPI.Service.ClienteService
 
                                 break;
                         }
+                        var firstX = ListaTmp.FirstOrDefault()?.Id;
+                        var lastX = ListaTmp.LastOrDefault()?.Id;
+                        var firstY = Lista.FirstOrDefault()?.Id;
+                        var lastY = Lista.LastOrDefault()?.Id;
+
+                        var seletor = "X";
+                        if (firstX == firstY && lastX == lastY)
+                        {
+                            seletor = "A";
+                        }
+                        else
+                        {
+                            if (firstX == firstY)
+                            {
+                                seletor = "I";
+                            }
+                            if (lastX == lastY)
+                            {
+                                seletor = "F";
+                            }
+                        }
+                        
+                        serviceResponse.Dados = Lista.ToList();
+                        serviceResponse.Mensagem = firstY.ToString() + "֍" + lastY.ToString() + "֍" + seletor;
+                        serviceResponse.Sucesso = true;
+                        return serviceResponse;
+                    }
+                    else
+                    {
+                        serviceResponse.Dados = null;
+                        serviceResponse.Mensagem = "Problemas foram encontrados no loop mais interno";
+                        serviceResponse.Sucesso = false;
+                        return serviceResponse;
+                    }
+                }
+                else
+                {
+                    serviceResponse.Dados = null;
+                    serviceResponse.Mensagem = "Problemas foram encontrados no loop central";
+                    serviceResponse.Sucesso = false;
+                    return serviceResponse;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Tratar exceções, se necessário
+                serviceResponse.Dados = null;
+                serviceResponse.Mensagem = "Problemas foram encontrados no loop externo";
+                serviceResponse.Sucesso = false;
+                return serviceResponse;
+            }
+        }*/
+
+        
+        public async Task<ServiceResponse<List<ClienteModel>>> GetCli(string id)
+        {
+            ServiceResponse<List<ClienteModel>> serviceResponse = new ServiceResponse<List<ClienteModel>>();
+            try
+            {
+                // Dividir a string usando '%' como delimitador
+                string[] partes = id.Split('֍');
+
+                // Verificar se há pelo menos três partes
+                if (partes.Length >= 3)
+                {
+                    // Extrair valores
+                    string tipo = partes[0];
+                    string valor = partes[1];
+                    var Dados = new List<ClienteModel>();
+
+                    // Converter a terceira parte para inteiro (índice)
+                    if (int.TryParse(partes[2], out int indice))
+                    {
+                        //Aplicar o filtro primeiro:
+                        switch (tipo)
+                        {
+                            case "Nome":
+                                Dados = _context.Clientes
+                                    .OrderBy(x => x.Id)
+                                    .Where(x => x.Nome.ToLower().Contains(valor.ToLower()))
+                                    .ToList();
+                                break;
+                            case "Nome da Mãe":
+                                Dados = _context.Clientes
+                                    .OrderBy(x => x.Id)
+                                    .Where(x => x.Mae.ToLower().Contains(valor.ToLower()))
+                                    .ToList();
+                                break;
+                            case "Área":
+                                Dados = _context.Clientes
+                                    .OrderBy(x => x.Id)
+                                    .Where(x => x.AreaSession.ToLower().Contains(valor.ToLower()))
+                                    .ToList();
+                                break;
+                            case "Idade":
+                                var idade = int.Parse(valor);
+
+                                DateTime dataReferencia = DateTime.Now.ToLocalTime();
+                                // Calcula a data mínima com base na idade
+                                DateTime dataMinima = dataReferencia.AddYears(-idade - 1);
+                                // dataMinima = DateTime.ParseExact(dataMinima.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                                DateOnly dataMinimaOnly = DateOnly.FromDateTime(dataMinima);
+                                string DtMin = dataMinimaOnly.ToString();
+                                string[] DtMin2 = DtMin.Split('/');
+                                DtMin = DtMin2[2] + "-" + DtMin2[1] + "-" + DtMin2[0];
+                                dataMinimaOnly = DateOnly.Parse(DtMin);
+                                // Calcula a data máxima com base na idade
+                                DateTime dataMaxima = dataReferencia.AddYears(-idade);
+                                // dataMaxima = DateTime.ParseExact(dataMaxima.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture); 
+                                DateOnly dataMaximaOnly = DateOnly.FromDateTime(dataMaxima);
+                                string DtMax = dataMaximaOnly.ToString();
+                                string[] DtMax2 = DtMax.Split('/');
+                                DtMax = DtMax2[2] + "-" + DtMax2[1] + "-" + DtMax2[0];
+                                dataMaximaOnly = DateOnly.Parse(DtMax);
+
+
+
+                                List<ClienteModel> clientes2 = _context.Clientes.ToList();
+
+                                foreach (var i in clientes2)
+                                {
+                                    DateOnly Dt = DateOnly.Parse(i.DtNascim.ToString());
+                                    if (Dt >= dataMinimaOnly && Dt < dataMaximaOnly)
+                                    {
+                                        Dados.Add(i);
+                                    }
+                                }                                
+                                break;
+                            default:
+                                Dados = _context.Clientes
+                                    .OrderBy(x => x.Id)
+                                    .ToList();
+                                break;
+                        }
+                        var ListaTmp = new List<ClienteModel>();
+                        var Lista = new List<ClienteModel>();
+                        List<ClienteModel> DadosList = new List<ClienteModel>();
+                        if (partes[3] == "P")
+                        {
+                            ListaTmp = Dados
+                            .OrderBy(x => x.Id)
+                            .ToList();
+
+                            Lista = Dados
+                            .OrderBy(x => x.Id)
+                            .Where(x => x.Id >= indice)
+                            .Take(10)
+                            .ToList();
+                        }
+                        else
+                        {
+                            ListaTmp = Dados
+                            .OrderByDescending(x => x.Id)
+                            .OrderBy(x => x.Id)
+                            .ToList();
+
+                            Lista = Dados
+                            .OrderByDescending(x => x.Id)
+                            .Where(x => x.Id <= indice)
+                            .Take(10)
+                            .OrderBy(x => x.Id)
+                            .ToList();
+                        }
+                        
                         var firstX = ListaTmp.FirstOrDefault()?.Id;
                         var lastX = ListaTmp.LastOrDefault()?.Id;
                         var firstY = Lista.FirstOrDefault()?.Id;
