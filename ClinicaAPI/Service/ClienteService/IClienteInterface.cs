@@ -14,7 +14,8 @@ namespace ClinicaAPI.Service.ClienteService
         Task<ServiceResponse<List<ClienteModel>>> ActivateCliente(int Id);
         Task<ServiceResponse<List<ClienteModel>>> GetClientebyNome(string atr, string par, string ret);
 
-        Task<ServiceResponse<List<TipoModel>>> GetClientebyAgenda();
+        Task<ServiceResponse<List<TipoModel>>> GetClientebyAgenda(string tipo);
+        Task<ServiceResponse<List<ClienteModel>>> GetCli(string id);
     }
 
 }

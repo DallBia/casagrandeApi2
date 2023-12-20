@@ -1,5 +1,6 @@
 ﻿using ClinicaAPI.Models;
 using ClinicaAPI.Service.ClienteService;
+using ClinicaAPI.Service.ColaboradorService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,10 +37,11 @@ namespace ClinicaAPI.Controllers
             ServiceResponse<List<ClienteModel>> serviceResponse = await _clienteInterface.GetClientebyArea(Area);
             return Ok(serviceResponse);
         }
-        [HttpGet("Agenda")]
-        public async Task<ActionResult<ServiceResponse<List<TipoModel>>>> GetClientebyAgenda()
+        [Authorize]
+        [HttpGet("Agenda/{tipo}")]
+        public async Task<ActionResult<ServiceResponse<List<TipoModel>>>> GetClientebyAgenda(string tipo)
         {
-            ServiceResponse<List<TipoModel>> serviceResponse = await _clienteInterface.GetClientebyAgenda();
+            ServiceResponse<List<TipoModel>> serviceResponse = await _clienteInterface.GetClientebyAgenda(tipo);
             return Ok(serviceResponse);
         }
 
@@ -81,6 +83,15 @@ namespace ClinicaAPI.Controllers
         public async Task<ActionResult<ServiceResponse<List<ClienteModel>>>> DeleteCliente(int Id)
         {
             ServiceResponse<List<ClienteModel>> serviceResponse = await _clienteInterface.DeleteCliente(Id);
+            return Ok(serviceResponse);
+        }
+
+        [Authorize]
+        [HttpGet("novoId/{id}")]
+        public async Task<ActionResult<ServiceResponse<List<ClienteModel>>>> GetCli(string id)
+        {
+
+            ServiceResponse<List<ClienteModel>> serviceResponse = await _clienteInterface.GetCli(id);
             return Ok(serviceResponse);
         }
     }

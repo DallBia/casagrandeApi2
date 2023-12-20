@@ -12,6 +12,7 @@ namespace ClinicaAPI.Models
         public string? descricao { get; set; }
         public DateTime dtInclusao { get; set; }
         public string arquivo { get; set; }
+        public byte[] arquivoPDF { get; set; }
 
     }
 }

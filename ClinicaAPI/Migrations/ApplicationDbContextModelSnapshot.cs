@@ -221,6 +221,10 @@ namespace ClinicaAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<byte[]>("arquivoPDF")
+                        .IsRequired()
+                        .HasColumnType("bytea");
+
                     b.Property<string>("cliOuProf")
                         .IsRequired()
                         .HasColumnType("text");
@@ -318,6 +322,34 @@ namespace ClinicaAPI.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Escolas");
+                });
+
+            modelBuilder.Entity("ClinicaAPI.Models.FileModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<byte[]>("Content")
+                        .IsRequired()
+                        .HasColumnType("bytea");
+
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("UploadDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Files");
                 });
 
             modelBuilder.Entity("ClinicaAPI.Models.FinanceiroModel", b =>

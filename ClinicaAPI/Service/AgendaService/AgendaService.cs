@@ -125,16 +125,55 @@ public class AgendaService : IAgendaInterface
                 .FirstOrDefault(x => x.diaI <= testAgenda.diaI
                                     && x.diaF >= testAgenda.diaF
                                     && x.nome == testAgenda.nome
-                                    && x.horario == testAgenda.horario);
+                                    && x.horario == testAgenda.horario);               
+                
 
                 if (agendaExistente != null)
                 {
-                    serviceResponse.Dados = agendaExistente;
-                    serviceResponse.Mensagem = "Encontrado.";
-                    serviceResponse.Sucesso = true;
+                    if (agendaExistente.configRept == "X")
+                    {
+                        serviceResponse.Dados = agendaExistente;
+                        serviceResponse.Mensagem = "Encontrado.";
+                        serviceResponse.Sucesso = true;
+                    }
+                    else
+                    {
+                        var rept1 = agendaExistente.configRept.Split('%');
+                        var rept2 = testAgenda.configRept.Split('%');
+                        if (rept1[0] == "D")
+                        {
+                            serviceResponse.Dados = agendaExistente;
+                            serviceResponse.Mensagem = "Encontrado.";
+                            serviceResponse.Sucesso = true;
+                        }
+                        else
+                        {
+                            if (rept1[1] == rept2[1])
+                            {
+                                if (rept1[0] == "S" || rept1[2] == rept2[2])
+                                {
+                                    serviceResponse.Dados = agendaExistente;
+                                    serviceResponse.Mensagem = "Encontrado.";
+                                    serviceResponse.Sucesso = true;
+                                }
+                                else
+                                {
+                                    serviceResponse.Dados = agendaExistente;
+                                    serviceResponse.Mensagem = "Não Encontrado.";
+                                    serviceResponse.Sucesso = true;
+                                }
+                            }
+                            else
+                            {
+                                serviceResponse.Dados = agendaExistente;
+                                serviceResponse.Mensagem = "Não Encontrado.";
+                                serviceResponse.Sucesso = true;
+                            }
+                        }                        
+                    }                    
                 }
                 else
-                {
+                {                    
                     serviceResponse.Dados = agendaExistente;
                     serviceResponse.Mensagem = "Não Encontrado.";
                     serviceResponse.Sucesso = true;

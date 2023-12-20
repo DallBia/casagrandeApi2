@@ -11,6 +11,7 @@ namespace ClinicaAPI.Enums
         Realizado,
         Desmarcado,
         Falta,
+        Reservado,
         Sala
     }
 }
