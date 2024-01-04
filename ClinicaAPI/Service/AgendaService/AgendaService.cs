@@ -49,23 +49,67 @@ public class AgendaService : IAgendaInterface
     {
         ServiceResponse<List<AgendaModel>> serviceResponse = new ServiceResponse<List<AgendaModel>>();
 
-        try
+        AgendaModel agendaExistente = _context.Agendas
+                .FirstOrDefault(x => x.diaI <= novaAgenda.diaI
+                                    && x.diaF >= novaAgenda.diaF
+                                    && x.horario == novaAgenda.horario
+                                    && x.sala == novaAgenda.sala
+                                    );
+        if (agendaExistente != null)
         {
-            _context.Agendas.Add(novaAgenda);
-            await _context.SaveChangesAsync();
-            var diaI = novaAgenda.diaI;
-            var diaF = novaAgenda.diaF;
-            List<AgendaModel> agendas = await _context.Agendas
-                .Where(a => a.diaI <= diaI && a.diaF >= diaF)
-                .ToListAsync();
-            serviceResponse.Dados = agendas;
-        }
-        catch (Exception ex)
-        {
-            serviceResponse.Mensagem = ex.Message;
-            serviceResponse.Sucesso = false;
-        }
+            try
+            {                
+                agendaExistente.idCliente = novaAgenda.idCliente;
+                agendaExistente.idFuncAlt = novaAgenda.idFuncAlt;
+                agendaExistente.nome = novaAgenda.nome;
+                agendaExistente.dtAlt = DateTime.UtcNow;
+                agendaExistente.horario = novaAgenda.horario;
+                agendaExistente.sala = novaAgenda.sala;
+                agendaExistente.unidade = novaAgenda.unidade;
+                agendaExistente.diaI = novaAgenda.diaI;
+                agendaExistente.diaF = novaAgenda.diaF;
+                agendaExistente.repeticao = novaAgenda.repeticao;
+                agendaExistente.subtitulo = novaAgenda.subtitulo;
+                agendaExistente.status = novaAgenda.status;
+                agendaExistente.historico = novaAgenda.historico;
+                agendaExistente.obs = novaAgenda.obs;
+                agendaExistente.valor = novaAgenda.valor;
+                agendaExistente.profis = novaAgenda.profis;
 
+                _context.Agendas.Update(agendaExistente);
+                await _context.SaveChangesAsync();
+                var diaI = novaAgenda.diaI;
+                var diaF = novaAgenda.diaF;
+                List<AgendaModel> agendas = await _context.Agendas
+                    .Where(a => a.diaI <= diaI && a.diaF >= diaF)
+                    .ToListAsync();
+                serviceResponse.Dados = agendas;
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Sucesso = false;
+            }
+        }
+        else
+        {
+            try
+            {
+                _context.Agendas.Add(novaAgenda);
+                await _context.SaveChangesAsync();
+                var diaI = novaAgenda.diaI;
+                var diaF = novaAgenda.diaF;
+                List<AgendaModel> agendas = await _context.Agendas
+                    .Where(a => a.diaI <= diaI && a.diaF >= diaF)
+                    .ToListAsync();
+                serviceResponse.Dados = agendas;
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Sucesso = false;
+            }
+        }      
         return serviceResponse;
     }
 
@@ -100,6 +144,7 @@ public class AgendaService : IAgendaInterface
              agendaExistente.historico = agendaAtualizada.historico;
              agendaExistente.obs = agendaAtualizada.obs;
              agendaExistente.valor = agendaAtualizada.valor;
+             agendaExistente.profis = agendaAtualizada.profis;
 
             _context.Agendas.Update(agendaExistente);
              await _context.SaveChangesAsync();
