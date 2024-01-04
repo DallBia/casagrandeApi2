@@ -44,6 +44,7 @@ namespace ClinicaAPI.Models
         public string? historico { get; set; }
         public string? obs { get; set; }
         public double? valor { get; set; } = 0;
-
+        public string? multi { get; set; }
+        public string? profis { get; set; }
     }
 }

@@ -196,10 +196,12 @@ public class AgendaService : IAgendaInterface
                                     && x.diaF >= testAgenda.diaF
                                     && x.sala == testAgenda.sala
                                     && x.unidade == testAgenda.unidade
-                                    && x.horario == testAgenda.horario);
+                                    && x.horario == testAgenda.horario
+                                    && x.status != 0);
 
                 if (agendaExistente != null)
                 {
+                    
                     serviceResponse.Dados = agendaExistente;
                     serviceResponse.Mensagem = "Indisponível.";
                     serviceResponse.Sucesso = true;
@@ -221,6 +223,163 @@ public class AgendaService : IAgendaInterface
         }
         
 
+        return serviceResponse;
+    }
+
+    public async Task<ServiceResponse<List<AgendaModel>>> GetMultiAgenda(string parametro)
+    {
+        var param = parametro.Split('֍');
+        ServiceResponse<List<AgendaModel>> serviceResponse = new ServiceResponse<List<AgendaModel>>();
+        try
+        {
+ 
+            if (param[0] == "nome")
+            {
+                List<AgendaModel> agendas = await _context.Agendas
+                    .Where(a => a.nome == param[1])
+                    .ToListAsync();
+                
+                if (agendas.Count == 0)
+                {
+                    serviceResponse.Mensagem = "Nenhum dado encontrado.";
+                }
+                serviceResponse.Dados = agendas;
+                serviceResponse.Mensagem = agendas.Count + " substituições feitas";
+            }
+            else
+            {
+                List<AgendaModel> agendas = await _context.Agendas
+                    .Where(a => a.multi == param[1])
+                    .ToListAsync();
+                if (agendas.Count == 0)
+                {
+                    serviceResponse.Mensagem = "Nenhum dado encontrado.";
+                }
+                serviceResponse.Dados = agendas;
+                serviceResponse.Mensagem = agendas.Count + " substituições feitas";
+            }
+            serviceResponse.Sucesso = true;
+        }
+        catch (Exception ex)
+        {
+            serviceResponse.Mensagem = "Ocorreu um erro";
+            serviceResponse.Dados = null;
+            serviceResponse.Sucesso = false;
+        }
+        return serviceResponse;
+    }
+
+    
+
+    public async Task<ServiceResponse<List<AgendaModel>>> MultiAgenda(int id, string parametro)
+    {
+        ServiceResponse<List<AgendaModel>> serviceResponse = new ServiceResponse<List<AgendaModel>>();
+        
+        try
+        {
+            switch (id)
+            {
+                case 1:
+                    List<AgendaModel> agendas = await _context.Agendas
+                    .Where(a => a.nome == parametro
+                    && a.status == (StatusEnum)6)
+                    .ToListAsync();
+
+                    if (agendas.Count == 0)
+                    {
+                        serviceResponse.Mensagem = "Nenhum dado encontrado.";
+                        serviceResponse.Dados = agendas;
+                        serviceResponse.Mensagem = agendas.Count + " substituições feitas";
+                    }
+                    else
+                    {
+                        foreach (AgendaModel i in agendas)
+                        {
+                            i.profis = null;
+                            i.valor = 0;
+                            i.idCliente = 0;
+                            i.multi = "";
+                            i.nome = "";
+                            i.profis = "";
+                            i.repeticao = 0;
+                            i.status = 0;
+                            i.subtitulo = "";
+                        }
+                        _context.Agendas.UpdateRange(agendas);
+                        await _context.SaveChangesAsync();
+
+                        serviceResponse.Dados = _context.Agendas.ToList();
+                        serviceResponse.Sucesso = true;
+                        serviceResponse.Mensagem = agendas.Count + " substituições feitas";
+                    }
+                    break;
+                case 2:
+                    List<AgendaModel> agendas2 = await _context.Agendas
+                    .Where(a => a.multi == parametro
+                    && a.status == (StatusEnum)6)
+                    .ToListAsync();
+
+                    if (agendas2.Count == 0)
+                    {
+                        serviceResponse.Mensagem = "Nenhum dado encontrado.";
+                        serviceResponse.Dados = agendas2;
+                        serviceResponse.Mensagem = agendas2.Count + " substituições feitas";
+                    }
+                    else
+                    {
+                        foreach (AgendaModel i in agendas2)
+                        {
+                            i.profis = null;
+                            i.valor = 0;
+                            i.idCliente = 0;
+                            i.multi = "";
+                            i.nome = "";
+                            i.profis = "";
+                            i.repeticao = 0;
+                            i.status = 0;
+                            i.subtitulo = "";
+                        }
+                        _context.Agendas.UpdateRange(agendas2);
+                        await _context.SaveChangesAsync();
+
+                        serviceResponse.Dados = _context.Agendas.ToList();
+                        serviceResponse.Sucesso = true;
+                        serviceResponse.Mensagem = agendas2.Count + " substituições feitas";
+                    }
+                    break;
+                default:
+                    List<AgendaModel> agendas3 = await _context.Agendas
+                                        .Where(a => a.multi == parametro
+                                        && a.status == (StatusEnum)6)
+                                        .ToListAsync();
+
+                    if (agendas3.Count == 0)
+                    {
+                        serviceResponse.Mensagem = "Nenhum dado encontrado.";
+                        serviceResponse.Dados = agendas3;
+                        serviceResponse.Mensagem = agendas3.Count + " substituições feitas";
+                    }
+                    else
+                    {
+                        foreach (AgendaModel i in agendas3)
+                        {                          
+                            i.status = (StatusEnum)2;
+                        }
+                        _context.Agendas.UpdateRange(agendas3);
+                        await _context.SaveChangesAsync();
+                        serviceResponse.Dados = _context.Agendas.ToList();
+                        serviceResponse.Sucesso = true;
+                        serviceResponse.Mensagem = agendas3.Count + " substituições feitas";
+                    }
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            serviceResponse.Mensagem = "Ocorreu um erro";
+            serviceResponse.Dados = null;
+            serviceResponse.Sucesso = false;
+        }
         return serviceResponse;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ClinicaAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -42,11 +43,30 @@ public class AgendaController : ControllerBase
         ServiceResponse<AgendaModel> serviceResponse = await _agendaInterface.ValidAgenda(testAgenda);
         return Ok(serviceResponse);
     }
+    
+    [HttpGet("Multi/{param}")]
+    public async Task<ActionResult<ServiceResponse<AgendaModel>>> GetMultiAgenda(string param)
+    {
+        ServiceResponse<List<AgendaModel>> serviceResponse = await _agendaInterface.GetMultiAgenda(param);
+        return Ok(serviceResponse);
+    }
+
     [HttpPut("UpdateAgenda/{id}")]
     public async Task<ActionResult<ServiceResponse<AgendaModel>>> UpdateAgenda(int id, [FromBody] AgendaModel agendaAtualizada)
     {
         ServiceResponse<AgendaModel> serviceResponse = await _agendaInterface.UpdateAgenda(id, agendaAtualizada);
         return Ok(serviceResponse);
     }
-    
+
+    [Authorize]
+    [HttpPut("MultiAgenda/{id}")]
+    public async Task<ActionResult<ServiceResponse<AgendaModel>>> MultiAgenda(int id, [FromBody] string par)
+    {
+
+         /*var quebra = par.Split('֍');
+         var num = int.Parse(quebra[0]);*/
+         ServiceResponse<List<AgendaModel>> serviceResponse = await _agendaInterface.MultiAgenda(id, par);
+         return Ok(serviceResponse);
+    }
+
 }

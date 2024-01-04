@@ -9,4 +9,7 @@ public interface IAgendaInterface
     Task<ServiceResponse<List<AgendaModel>>> CreateAgenda(AgendaModel novaAgenda);
     Task<ServiceResponse<AgendaModel>> UpdateAgenda(int id, AgendaModel editAgenda);
     Task<ServiceResponse<AgendaModel>> ValidAgenda(AgendaModel testAgenda);
+    Task<ServiceResponse<List<AgendaModel>>> GetMultiAgenda(string param);
+    Task<ServiceResponse<List<AgendaModel>>> MultiAgenda(int id, string param);
+
 }
